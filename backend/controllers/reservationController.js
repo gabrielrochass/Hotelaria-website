@@ -75,3 +75,7 @@ export const cancelReservation = async (req, res) => {
         });
     }
 };
+
+export const createReservation = async (req, res) => {
+
+}

@@ -81,7 +81,7 @@ Feature: Avaliação de Hospedagem
         And sistema confere se nenhum campo da avaliação é "Null"
         And Código de resposta "200"
 
-    Scenario: Confirmar avaliação
+    Scenario: Avaliação incompleta
         Given usuário de id "1111" está na página de escrever avaliação sobre a acomodação de id_acom "2211"
         When usuário insere "5" em Limpeza
         And insere "4" em Exatidão do Anúncio

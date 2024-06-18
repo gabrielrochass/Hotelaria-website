@@ -1,43 +1,54 @@
 [
-    {
-      "id": "012",
-      "nome": "Chalé do Porto",
-      "quantidadeQuartos": 3,
-      "lotacaoMaxima": 6,
-      "precoPorNoite": 150,
-      "userId": "123"
-    },
-    {
-      "id": "2",
-      "nome": "Apartamento Central",
-      "quantidadeQuartos": 2,
-      "lotacaoMaxima": 4,
-      "precoPorNoite": 200,
-      "userId": "123"
-    },
-    {
-        "id": "3",
-        "nome": "Propriedade 3",
-        "quantidadeQuartos": 4,
-        "lotacaoMaxima": 8,
-        "precoPorNoite": 100,
-        "userId": "123",
-        "desconto": 10,
-        "promoName": "Promoção 3",
-        "promoId": "3",
-        "data_inicio": "2021-10-01",
-        "data_fim": "2021-10-31"
-    },
-    {
-        "id": "4",
-        "nome": "Propriedade 4",
-        "quantidadeQuartos": 4,
-        "lotacaoMaxima": 10,
-        "precoPorNoite": 200,
-        "userId": "123",
-        "desconto": 20,
-        "promoName": "Promoção 4",
-        "promoId": "4",
-        "data_inicio": "2021-10-05",
-        "data_fim": "2021-10-25"
-    }
+  {
+    "id": "012",
+    "nome": "Chalé do Porto",
+    "quantidadeQuartos": 3,
+    "lotacaoMaxima": 6,
+    "precoPorNoite": 150,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null
+  },
+  {
+    "id": "2",
+    "nome": "Apartamento Central",
+    "quantidadeQuartos": 2,
+    "lotacaoMaxima": 4,
+    "precoPorNoite": 0.390625,
+    "ratingsId": {},
+    "finalGrade": null,
+    "desconto": "50",
+    "promoName": "Promoção metade",
+    "promoId": "265ae010-f5e3-49cc-9f58-c2c626020b51",
+    "data_inicio": "2021-10-01",
+    "data_fim": "2021-10-31"
+  },
+  {
+    "id": "3",
+    "nome": "Propriedade 3",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 8,
+    "precoPorNoite": 100,
+    "userId": "123",
+    "desconto": 10,
+    "promoName": "Promoção 3",
+    "promoId": "3",
+    "data_inicio": "2021-10-01",
+    "data_fim": "2021-10-31"
+  },
+  {
+    "id": "4",
+    "nome": "Propriedade 4",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 10,
+    "precoPorNoite": 200,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null,
+    "desconto": 20,
+    "promoName": "Promoção 4",
+    "promoId": "4",
+    "data_inicio": "2021-10-05",
+    "data_fim": "2021-10-25"
+  }
+]

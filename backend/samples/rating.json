@@ -1,0 +1,15 @@
+[
+    {
+        "idRating": "1",
+        "accommodationName": "Exemplo",
+        "confortoGrade": 5,
+        "checkinGrade": 5,
+        "comunicacaoGrade": 5,
+        "localizacaoGrade": 5,
+        "limpezaGrade": 5,
+        "finalGrade": null,
+        "comment": "muito boa, me diverti muito!!",
+        "accommodationId": "2",
+        "reservationId": "1"
+    }
+]
