@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "desconto": 20,
+    "promoName": "Promoção de Verão",
+    "data_inicio": "2022-06-01",
+    "data_fim": "2022-06-30"
+  },
+  {
+    "id": "2",
+    "desconto": 50,
+    "promoName": "Promoção de Inverno",
+    "data_inicio": "2022-12-01",
+    "data_fim": "2022-12-31"
+  }
+]

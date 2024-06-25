@@ -1,7 +1,11 @@
 {
   "scripts": {
     "start": "nodemon index.js",
-    "test": "jest"
+    "test": "jest",
+    "test cadastrarPromo": "npx jest --testPathPattern=tests/promo/cadastrarPromo/cadastrarPromo.test.js",
+    "test deletarPromo": "npx jest --testPathPattern=tests/promo/deletarPromo/deletarPromo.test.js",
+    "test editarPromo": "npx jest --testPathPattern=tests/promo/editarPromo/editarPromo.test.js",
+    "test listarPromo": "npx jest --testPathPattern=tests/promo/listarPromo/listarPromo.test.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
