@@ -1,21 +1,5 @@
 [
   {
-    "id": "1",
-    "fullName": "José Maria",
-    "birthday": "05/15/2000",
-    "email": "mfp2@cin.ufpe.br",
-    "cellphone": "81998138209",
-    "password": "$2a$10$C0zPbFvhQTGIUjYIMIKp3O/gNa.CQUwPAYRm4zKId9xqrrQAmPp.a",
-    "reservationsId": [ "1" ],
-    "accommodationsId": [],
-    "liked": [
-      "1"
-    ],
-    "saved": [
-      "2"
-    ]
-  },
-  {
     "id": "2",
     "fullName": "José Roberto",
     "birthday": "09/09/1998",
@@ -25,7 +9,8 @@
     "reservationsId": [],
     "accommodationsId": [],
     "liked": [],
-    "saved": []
+    "saved": [],
+    "cards": []
   },
   {
     "id": "5e3ff57b-3917-4092-83ed-9c2b696bac69",
@@ -37,6 +22,64 @@
     "reservationsId": [],
     "accommodationsId": [],
     "liked": [],
-    "saved": []
+    "saved": [],
+    "cards": []
+  },
+  {
+    "id": "e24a615d-19c8-4109-950d-4a2cf462f642",
+    "fullName": "Matheus Pinheiro",
+    "birthday": "01/01/2000",
+    "email": "aloualou@email.com",
+    "cellphone": "81998138209",
+    "password": "$2a$10$MF0CJlbCrD8X7uJ0kt.NUOf1udXRtvTrAvX0qjTXzCItSyLBVW6uW",
+    "reservationsId": [],
+    "accommodationsId": [],
+    "liked": [],
+    "saved": [],
+    "cards": []
+  },
+  {
+    "id": "6d57bb6b-7c4a-47e9-9790-284b072afb35",
+    "fullName": "Matheus Pinheiro",
+    "birthday": "01/01/2000",
+    "email": "muitobom@email.com",
+    "cellphone": "81998138209",
+    "password": "$2a$10$0VUs7OoJvJbjSIOYdVb5j.IzuER6bmCkCsucxCc7EZf9Cju1XjNxm",
+    "reservationsId": [],
+    "accommodationsId": [],
+    "liked": [],
+    "saved": [],
+    "cards": []
+  },
+  {
+    "id": "1",
+    "fullName": "José Maria",
+    "birthday": "05/15/2000",
+    "email": "mfp2@cin.ufpe.br",
+    "cellphone": "81998138209",
+    "password": "$2a$10$C0zPbFvhQTGIUjYIMIKp3O/gNa.CQUwPAYRm4zKId9xqrrQAmPp.a",
+    "reservationsId": [
+      "1"
+    ],
+    "accommodationsId": [],
+    "liked": [],
+    "saved": [
+      "1",
+      "2"
+    ],
+    "cards": []
+  },
+  {
+    "id": "3",
+    "fullName": "Iasmin Gomes",
+    "birthday": "05/06/2000",
+    "email": "iasmin@protonmail.com",
+    "cellphone": "81998138209",
+    "password": "$2a$10$C0zPbFvhQTGIUjYIMIKp3O/gNa.CQUwPAYRm4zKId9xqrrQAmPp.a",
+    "reservationsId": [],
+    "accommodationsId": [],
+    "liked": [],
+    "saved": [],
+    "cards": []
   }
 ]

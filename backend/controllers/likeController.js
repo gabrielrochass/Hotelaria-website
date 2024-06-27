@@ -23,14 +23,23 @@ export const like =  async (req, res) => {
 
         var hotel = hotel_data.find(hotel => hotel.id === accommodationId);
 
+        if (!hotel) {
+            console.log("Hotel not found");
+            return res.status(404).json({ error: "Hotel not found" });
+        }
+
         if (!user.liked.includes(accommodationId)){
             user.liked.push(accommodationId);
             hotel.likes += 1;
             console.log("Added Hotel");
+            fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(user_data, null, 2));
+            fs.writeFileSync(path.resolve('./samples/hotels.json'), JSON.stringify(hotel_data, null, 2));
+            return res.status(200).json({
+                "Liked": hotel.name
+            });
+        } else {
+            return res.status(400).json({ error: "Hotel already liked" });
         }
-
-        fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(user_data, null, 2));
-        fs.writeFileSync(path.resolve('./samples/hotels.json'), JSON.stringify(hotel_data, null, 2));
         
     }
     catch (error) {
@@ -56,15 +65,30 @@ export const removeLike =  async (req, res) => {
         }
 
         var user = user_data.find(user => user.id === userId);
-        var hotel = hotel_data.find(hotel => hotel.id === accommodationId);
 
-        if (user.liked.includes(accommodationId)){
-            user.liked.pop(accommodationId);
-            hotel.likes--;
+        if (!user) {
+            console.log("User not found");
+            return res.status(404).json({ error: "User not found" });
         }
 
-        fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(user_data, null, 2));
-        fs.writeFileSync(path.resolve('./samples/hotels.json'), JSON.stringify(hotel_data, null, 2));
+        var hotel = hotel_data.find(hotel => hotel.id === accommodationId);
+
+        if (!hotel) {
+            console.log("Hotel not found");
+            return res.status(404).json({ error: "Hotel not found" });
+        }
+
+        if (user.liked.includes(accommodationId)){
+            user.liked = user.liked.filter(item => item !== accommodationId);
+            hotel.likes--;
+            console.log("Removed Hotel");
+            fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(user_data, null, 2));
+            fs.writeFileSync(path.resolve('./samples/hotels.json'), JSON.stringify(hotel_data, null, 2));
+            return res.status(200).json({
+                "Removed Like": hotel.name
+            });
+        }
+
     }
     catch (error) {
         console.log("Error in Like controller:", error.message)
@@ -89,9 +113,22 @@ export const getLikes =  async (req, res) => {
 
         var user = user_data.find(user => user.id === userId);
 
-        for (let i = 0; i < user.liked.length; i++){
-            var hotel = hotel_data.find(hotel => hotel.id === user.liked[i]);
-            if(hotel) console.log(hotel.name);
+        if (!user) {
+            console.log("User not found");
+            return res.status(404).json({ error: "User not found" });
+        } else {
+
+            let likedHotels = [];
+
+            for(let i = 0; i < user.liked.length; i++){
+                let hotel = hotel_data.find(hotel => hotel.id === user.liked[i]);
+                likedHotels.push(hotel.name);
+            }
+
+            console.log("Liked: ", likedHotels);
+            return res.status(200).json({
+                liked: likedHotels
+            });
         }
 
     }

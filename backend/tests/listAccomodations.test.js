@@ -1,14 +1,20 @@
-const { defineFeature, loadFeature } = require('jest-cucumber');
-const axios = require('axios');
+import { defineFeature, loadFeature } from  'jest-cucumber';
+import supertest from 'supertest';
+import app from '../..';
+import fs from 'fs';
+import path from 'path'
+
 const feature = loadFeature('./tests/host/features/listAccomodations.feature');
+const request = supertest(app);
 
 defineFeature(feature, test => {
   let response;
+  let userId;
 
   test('Ver lista de acomodações publicadas via GUI', ({ given, and, when, then }) => {
-    given(/^Given que estou logado no sistema com o ID do usuário "(\d+)"$/, async (userId) => {
+    given(/^Given que estou logado no sistema com o ID do usuário "(.*)"$/, async (arg0) => {
       // Simular autenticação do usuário
-      this.userId = userId;
+      userId = arg0;
     });
 
     and('eu estou na página "Minhas Acomodações"', () => {
@@ -18,7 +24,7 @@ defineFeature(feature, test => {
 
     when('eu clico no botão "Listar Acomodações"', async () => {
       // Simular clique no botão "Listar Acomodações" e fazer requisição GET
-      response = await axios.get(`http://localhost:5000/user/host/accommodations?userId=${this.userId}`);
+      response = await request.get(`http://localhost:5000/user/host/accommodations?userId=${userId}`);
     });
 
     then('eu devo ver uma lista de acomodações que publiquei', () => {

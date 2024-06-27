@@ -15,11 +15,11 @@ defineFeature(feature, (test) => {
             // Nada a ser implementado aqui para este exemplo
         });
 
-        given('uma acomodação com id: "2" está cadastrada no sistema', () => {
+        given(/^uma acomodação com id: "(.*)" está cadastrada no sistema$/, (id) => {
             let data = JSON.parse(fs.readFileSync(path.resolve('./samples/accommodations.json'), 'utf8'));
-            data = data.filter(accommodation => accommodation.id !== "2");
-            console.log('Dados atualizados de acomodações:', data);
-            fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2));
+            const accommodation = data.find(accommodation => accommodation.id === id);
+            console.log('Acomodação encontrada:', accommodation);
+            // fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2));
         });
 
         when(/^o administrador preenche os dados id: (\d+), desconto: (\d+), promoName: "(.*)", data_inicio: "(.*)", data_fim: "(.*)" e confirma$/, async (id, desconto, promoName, data_inicio, data_fim) => {
@@ -63,11 +63,11 @@ defineFeature(feature, (test) => {
             // Nada a ser implementado aqui para este exemplo
         });
 
-        given('uma acomodação com id: "5" está cadastrada no sistema', () => {
+        given(/^uma acomodação com id: "(\d+)" está cadastrada no sistema$/, (id) => {
             let data = JSON.parse(fs.readFileSync(path.resolve('./samples/accommodations.json'), 'utf8'));
-            data = data.filter(accommodation => accommodation.id !== "5");
+            data = data.filter(accommodation => accommodation.id !== id);
             console.log('Dados atualizados de acomodações:', data);
-            fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2));
+            // fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2));
         });
 
         when(/^o administrador preenche os dados id: (\d+), desconto: (\d+), promoName: "(.*)", data_inicio: "(.*)", data_fim: "(.*)" e confirma$/, async (id, desconto, promoName, data_inicio, data_fim) => {
@@ -102,11 +102,11 @@ defineFeature(feature, (test) => {
             // Nada a ser implementado aqui para este exemplo
         });
 
-        given('uma acomodação com id: "2" está cadastrada no sistema', () => {
+        given(/^uma acomodação com id: "(\d+)" está cadastrada no sistema$/, (id) => {
             let data = JSON.parse(fs.readFileSync(path.resolve('./samples/accommodations.json'), 'utf8'));
-            data = data.filter(accommodation => accommodation.id !== "2");
+            data = data.filter(accommodation => accommodation.id !== id);
             console.log('Dados atualizados de acomodações:', data);
-            fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2));
+            // fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2));
         });
 
         when(/^o administrador preenche os dados id: (\d+), desconto: (\d+), promoName: "(.*)", data_inicio: "(.*)", data_fim: "(.*)" e confirma$/, async (id, desconto, promoName, data_inicio, data_fim) => {

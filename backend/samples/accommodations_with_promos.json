@@ -1,0 +1,32 @@
+[
+  {
+    "id": "10",
+    "nome": "Propriedade 10",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 8,
+    "precoPorNoite": 100,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null,
+    "desconto": 10,
+    "promoName": "Promoção 10",
+    "promoId": "3",
+    "data_inicio": "2021-10-01",
+    "data_fim": "2021-10-31"
+  },
+  {
+    "id": "11",
+    "nome": "Propriedade 4",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 10,
+    "precoPorNoite": 200,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null,
+    "desconto": 20,
+    "promoName": "Promoção 4",
+    "promoId": "4",
+    "data_inicio": "2021-10-05",
+    "data_fim": "2021-10-25"
+  }
+]

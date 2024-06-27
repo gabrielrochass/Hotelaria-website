@@ -11,5 +11,31 @@
         "comment": "muito boa, me diverti muito!!",
         "accommodationId": "2",
         "reservationId": "1"
+    },
+    {
+        "idRating": "2",
+        "accommodationName": "Porto das Galinhas",
+        "confortoGrade": 5,
+        "checkinGrade": 5,
+        "comunicacaoGrade": 5,
+        "localizacaoGrade": 5,
+        "limpezaGrade": 5,
+        "finalGrade": null,
+        "comment": "muito boa, me diverti muito!!",
+        "accommodationId": "012",
+        "reservationId": "1"
+    },
+    {
+        "idRating": "3",
+        "accommodationName": "Porto das Galinhas",
+        "confortoGrade": 5,
+        "checkinGrade": 3,
+        "comunicacaoGrade": 3,
+        "localizacaoGrade": 3,
+        "limpezaGrade": 5,
+        "finalGrade": null,
+        "comment": "uhuuuuu muito bom",
+        "accommodationId": "012",
+        "reservationId": "2"
     }
 ]

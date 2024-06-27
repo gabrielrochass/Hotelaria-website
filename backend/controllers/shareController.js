@@ -14,7 +14,7 @@ export const generateLink =  async (req, res) => {
     } else {
         console.log("Link generated")
         return res.status(200).json({
-            link: `localhost:3000/accommodation/${hotel.id}`
+            link: `localhost:5001/accommodation/${hotel.id}`
         });
     }
 }

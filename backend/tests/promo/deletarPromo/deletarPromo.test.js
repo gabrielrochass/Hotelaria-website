@@ -17,7 +17,9 @@ defineFeature(feature, (test) => {
         });
         when(/^Iasmin faz uma requisição DELETE para o endpoint "(.*)"$/, async (url) => {
             const id = url.split("/").pop();
+            console.log('ID da promoção:', id);
             response = await request.delete(`/promo/deletar_promocao/${id}`);
+            // as informações de promoção, ou seja, promoName, desconto, dataInicio e dataFim, são apagadas do arquivo JSON para a acomodação com id fornecido    
         });
 
         then('o sistema retorna o código de resposta', () => {
@@ -46,11 +48,13 @@ defineFeature(feature, (test) => {
         });
 
         then('o sistema retorna o código de resposta', () => {
+            // se o id tá lá, mas n tem promoName, retorna 200, else 404
             expect(response.status).toBe(404);
+        
         });
 
         then(/^o sistema retorna a mensagem (.*)$/, () => {
-            expect(response.body.error).toBe('Promotion not found.');
+            expect(response.body.error).toBe('Hotel not found.');
         });
     });
 });

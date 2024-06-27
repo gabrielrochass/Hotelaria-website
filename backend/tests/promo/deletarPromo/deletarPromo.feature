@@ -5,7 +5,7 @@ Feature: Deletar promoção
     
     Scenario: Excluir promoção com sucesso
         Given existem promoções cadastradas no endpoint "/promocoes_cadastradas"
-        When Iasmin faz uma requisição DELETE para o endpoint "/promocoes_cadastradas/3" 
+        When Iasmin faz uma requisição DELETE para o endpoint "/promocoes_cadastradas/10" 
         Then o sistema retorna o código de resposta 
         And o sistema retorna a mensagem "Promo deleted successfully."
     

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "012",
+    "nome": "Chalé do Porto",
+    "quantidadeQuartos": 3,
+    "lotacaoMaxima": 6,
+    "precoPorNoite": 150,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null
+  },
+  {
+    "id": "2",
+    "nome": "Apartamento Central",
+    "quantidadeQuartos": 2,
+    "lotacaoMaxima": 4,
+    "precoPorNoite": 200,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null
+  },
+  {
+    "id": "3",
+    "nome": "Propriedade 3",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 8,
+    "precoPorNoite": 100,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null
+  },
+  {
+    "id": "4",
+    "nome": "Propriedade 4",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 10,
+    "precoPorNoite": 200,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null
+  }
+]

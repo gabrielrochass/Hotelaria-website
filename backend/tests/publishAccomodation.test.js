@@ -1,46 +1,55 @@
-const { defineFeature, loadFeature } = require('jest-cucumber');
-const axios = require('axios');
+import { defineFeature, loadFeature } from  'jest-cucumber';
+import supertest from 'supertest';
+import app from '../..';
+import fs from 'fs';
+import path from 'path'
+
 const feature = loadFeature('./tests/features/host/publishAccomodation.feature');
+const request = supertest(app);
 
 defineFeature(feature, test => {
   let response;
   let acomodacaoId;
+  let nome;
+  let quartos;
+  let lotacaoMax;
+  let preco;
 
   test('Publicar uma nova acomodação com sucesso', ({ given, when, and, then }) => {
     given(/^que estou na página "(.*)"$/, async (arg0) => {
       // Simular acesso à página de publicação de acomodação
     });
 
-    when(/^preencho "Nome da acomodação" com "(.*)"$/, (nome) => {
+    when(/^preencho "Nome da acomodação" com "(.*)"$/, (arg0) => {
       // Simular preenchimento do campo nome
-      this.nome = nome;
+      nome = arg0;
     });
 
-    and(/^preencho "Quantidade de quartos" com "(\d+)"$/, (quartos) => {
+    and(/^preencho "Quantidade de quartos" com "(.*)"$/, (arg0) => {
       // Simular preenchimento do campo quantidade de quartos
-      this.quartos = quartos;
+      quartos = arg0;
     });
 
-    and(/^preencho "Lotação maxima" com "(\d+)"$/, (lotacaoMaxima) => {
+    and(/^preencho "Lotação maxima" com "(.*)"$/, (arg0) => {
       // Simular preenchimento do campo lotação máxima
-      this.lotacaoMaxima = lotacaoMaxima;
+      lotacaoMax = arg0;
     });
 
-    and(/^preencho "Preço por noite" com "(\d+)"$/, (preco) => {
+    and(/^preencho "Preço por noite" com "(.*)"$/, (arg0) => {
       // Simular preenchimento do campo preço por noite
-      this.preco = preco;
+      preco = arg0;
     });
 
     and('clico no botão "Publicar"', async () => {
       // Simular requisição POST para publicar acomodação
       const novaAcomodacao = {
-        nome: this.nome,
-        quantidadeQuartos: this.quartos,
-        lotacaoMaxima: this.lotacaoMaxima,
-        precoPorNoite : this.preco
+        nome: nome,
+        quantidadeQuartos: quartos,
+        lotacaoMaxima: lotacaoMax,
+        precoPorNoite : preco
       };
 
-      response = await axios.post('http://localhost:5000/host/accommodations', novaAcomodacao);
+      response = await request.post('http://localhost:5000/host/accommodations').send(novaAcomodacao);
       acomodacaoId = response.data.id;
     });
 
@@ -60,37 +69,37 @@ defineFeature(feature, test => {
       // Simular acesso à página de publicação de acomodação
     });
 
-    when(/^preencho "Nome da acomodação" com "(.*)"$/, (nome) => {
+    when(/^preencho "Nome da acomodação" com "(.*)"$/, (arg0) => {
       // Simular preenchimento do campo nome
-      this.nome = nome;
+      nome = arg0;
     });
 
-    and(/^preencho "Quantidade de quartos" com "(\d+)"$/, (quartos) => {
+    and(/^preencho "Quantidade de quartos" com "(.*)"$/, (arg0) => {
       // Simular preenchimento do campo quantidade de quartos
-      this.quartos = quartos;
+      quartos = arg0;
     });
 
-    and(/^preencho "Lotação maxima" com "(\d+)"$/, (lotacaoMaxima) => {
+    and(/^preencho "Lotação maxima" com "(.*)"$/, (arg0) => {
       // Simular preenchimento do campo lotação máxima
-      this.lotacaoMaxima = lotacaoMaxima;
+      lotacaoMax = arg0;
     });
 
-    and(/^preencho "Preço por noite" com "(\d+)"$/, (preco) => {
+    and(/^preencho "Preço por noite" com "(.*)"$/, (arg0) => {
       // Simular preenchimento do campo preço por noite
-      this.preco = preco;
+      preco = arg0;
     });
 
     and('clico no botão "Publicar"', async () => {
       // Simular requisição POST para tentar publicar acomodação
       const novaAcomodacao = {
-        nome: this.nome,
-        quartos: this.quartos,
-        lotacaoMaxima: this.lotacaoMaxima,
-        preco: this.preco
+        nome: nome,
+        quartos: quartos,
+        lotacaoMaxima: lotacaoMax,
+        preco: preco
       };
 
       try {
-        response = await axios.post('http://localhost:5000/api/accommodations', novaAcomodacao);
+        response = await request.post('http://localhost:5000/host/accommodations').send(novaAcomodacao);
       } catch (error) {
         response = error.response;
       }

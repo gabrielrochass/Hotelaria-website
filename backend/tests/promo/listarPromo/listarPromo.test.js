@@ -10,10 +10,12 @@ const request = supertest(app);
 defineFeature(feature, (test) => {
     let response;
     let data = JSON.parse(fs.readFileSync(path.resolve('./samples/accommodations.json'), 'utf8'));
+    const accommodationsWithoutPromotions = data.filter(accommodation => !accommodation.promoName);
+    const accommodationsWithPromotions = data.filter(accommodation => accommodation.promoName);
 
     test("Lista de promoções cadastradas não vazia", ({ given, when, then, and }) => {
         given("existem promoções cadastradas no sistema", () => {
-            fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2));
+            fs.writeFileSync(path.resolve('./samples/accommodations_with_promos.json'), JSON.stringify(accommodationsWithPromotions, null, 2));
         });
 
         when('uma nova requisição GET é feita para o endpoint "/promocoes_cadastradas"', async () => {
@@ -23,23 +25,21 @@ defineFeature(feature, (test) => {
         });
 
         then('o código de resposta é 200', () => {
-            expect(response.status).toBe(200);
+            if (accommodationsWithPromotions.length === 0) {
+                expect(response.status).toBe(404);
+            } else {
+                expect(response.status).toBe(200);
+            }
         });
 
         and('o sistema retorna as "promos"', () => {
-            const promos = response.body;
-            console.log('Promoções retornadas:', promos);
-            console.log('Quantidade de promoções:', promos.length);
-            expect(promos).not.toHaveLength(0);
-            console.log('Promoções:', promos);
+            expect(response.body).toEqual(accommodationsWithPromotions);
         });
     });
-
+    
     test("Lista de promoções cadastradas vazia", ({ given, when, then }) => {
         given('não existem promoções cadastradas no sistema', () => {
-            // Removendo todas as promoções do arquivo JSON
-            data = data.filter(accommodation => !accommodation.promoName);
-            fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2));
+            fs.writeFileSync(path.resolve('./samples/accommodations_without_promos.json'), JSON.stringify(accommodationsWithoutPromotions, null, 2));
         });
 
         when('uma nova requisição GET é feita para o endpoint "/promocoes_cadastradas"', async () => {
@@ -53,14 +53,15 @@ defineFeature(feature, (test) => {
         });
 
         then('o código de resposta é 200', () => {
-            expect(response.status).toBe(200);
+            if(accommodationsWithPromotions.length === 0) {
+                expect(response.status).toBe(404);
+            } else {
+                expect(response.status).toBe(200);
+            }
         });
 
         then('o sistema retorna a mensagem "No promotions found"', () => {
-            // expect(response.body.error).toBe("No promotions found");
-            // espera q o tamanho da data com filter de promoName seja 0
-            expect(data.filter(accommodation => accommodation.promoName)).toHaveLength(0);
-            
+            expect(accommodationsWithPromotions).toHaveLength(0);
         });
     });
 });

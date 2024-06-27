@@ -6,6 +6,7 @@ export const save =  async (req, res) => {
     try {
         const { userId, accommodationId } = req.body;
         var user_data = JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf8'));
+        var hotel_data = JSON.parse(fs.readFileSync(path.resolve('./samples/hotels.json'), 'utf8'));
 
         if (!userId || !accommodationId) {
             console.log("All fields are required")
@@ -14,14 +15,25 @@ export const save =  async (req, res) => {
             });
         }
 
-        var user = user_data.find(user => user.id === userId);
+        let user = user_data.find(user => user.id === userId);
+
+        if (!user) {
+            console.log("User not found");
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        let hotel = hotel_data.find(hotel => hotel.id === accommodationId);
 
         if (!user.saved.includes(accommodationId)){
             console.log("Saved Hotel");
             user.saved.push(accommodationId)
+            fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(user_data, null, 2));
+            return res.status(200).json({
+                "Saved": hotel.name
+            });
+        } else {
+            return res.status(400).json({ error: "Hotel already saved" });
         }
-
-        fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(user_data, null, 2));
     }
     catch (error) {
         console.log("Error in Save controller:", error.message)
@@ -36,6 +48,7 @@ export const unsave =  async (req, res) => {
     try {
         const { userId, accommodationId } = req.body;
         var user_data = JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf8'));
+        var hotel_data = JSON.parse(fs.readFileSync(path.resolve('./samples/hotels.json'), 'utf8'));
 
         if (!userId || !accommodationId) {
             console.log("All fields are required")
@@ -46,11 +59,21 @@ export const unsave =  async (req, res) => {
 
         var user = user_data.find(user => user.id === userId);
 
-        if (user.saved.includes(accommodationId)){
-            user.saved.pop(accommodationId);
+        if (!user) {
+            console.log("User not found");
+            return res.status(404).json({ error: "User not found" });
         }
 
-        fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(user_data, null, 2));
+        let hotel = hotel_data.find(hotel => hotel.id === accommodationId);
+
+        if (user.saved.includes(accommodationId)){
+            user.saved = user.saved.filter(item => item !== accommodationId);
+            console.log("Unsaved Hotel");
+            fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(user_data, null, 2));
+            return res.status(200).json({
+                "unsaved": hotel.name
+            });
+        }
     }
     catch (error) {
         console.log("Error in Save controller:", error.message)
@@ -75,9 +98,22 @@ export const getSaves =  async (req, res) => {
 
         var user = user_data.find(user => user.id === userId);
 
-        for (let i = 0; i < user.saved.length; i++){
-            var hotel = hotel_data.find(hotel => hotel.id === user.saved[i]);
-            console.log(hotel.name);
+        if (!user) {
+            console.log("User not found");
+            return res.status(404).json({ error: "User not found" });
+        } else {
+
+            let savedHotels = [];
+
+            for(let i = 0; i < user.saved.length; i++){
+                let hotel = hotel_data.find(hotel => hotel.id === user.saved[i]);
+                savedHotels.push(hotel.name);
+            }
+
+            console.log("Saved: ", savedHotels);
+            return res.status(200).json({
+                saved: savedHotels
+            });
         }
 
     }

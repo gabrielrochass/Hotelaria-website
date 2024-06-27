@@ -4,14 +4,14 @@ import nodemailer from 'nodemailer';
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
-    port: 465,
-    secure: true, // Use `true` for port 465, `false` for all other ports
+    port: 587,
+    secure: false, // Use `true` for port 465, `false` for all other ports
     auth: {
       user: "essgrupo04@gmail.com",
       pass: "lkwxvgdaqddamtcj",
     },
     tls: {
-        rejectUnauthorized: true
+        rejectUnauthorized: false
     }
   });
 

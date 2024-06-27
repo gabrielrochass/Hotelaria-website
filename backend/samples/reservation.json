@@ -1,10 +1,13 @@
-[{
-    "id": "1",
-    "accommodationName": "Exemplo",
-    "numRooms": 2,
-    "capacity": 4,
-    "totalPaid": 1000,
-    "rates": 3,
-    "accommodationId": "2",
-    "userId": "1"
-}]
+[
+    {
+        "id": "1",
+        "accommodationName": "Exemplo",
+        "numRooms": 2,
+        "capacity": 4,
+        "totalPaid": 1000,
+        "checkin": "2024-08-25",
+        "rates": 3,
+        "accommodationId": "2",
+        "userId": "1"
+    }
+]
