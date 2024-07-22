@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 // Função para listar reservas na acomodação
 var userData = JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf8'))
 var acomData = JSON.parse(fs.readFileSync(path.resolve('./samples/accommodations.json'), 'utf8'))
-var data = JSON.parse(fs.readFileSync(path.resolve('./samples/reservation.json'), 'utf8'))
+var reserveData = JSON.parse(fs.readFileSync(path.resolve('./samples/reservation.json'), 'utf8'))
 
 export const listAccommodationReservations = async (req, res) => {
     try {
@@ -82,10 +82,10 @@ export const cancelReservation = async (req, res) => {
 
 export const createReservation = async (req, res) => {
     try {
-        const { acomId, userId } = req.params
+        const { acomId } = req.params
         // reservation.json variáveis puxadas da acommodation => accommodationName,numRooms,capacity, 
-        const { checkin, rates, numRooms, capacity } = req.body;
-        if (!checkin || !rates || !numRooms || !capacity) {
+        const { userId, checkin, rates, numRooms, capacity } = req.body;
+        if (!checkin || !userId || !rates || !numRooms || !capacity) {
             console.log("All fields are required");
             return res.status(400).json({
                 error: "All fields are required"
@@ -115,8 +115,12 @@ export const createReservation = async (req, res) => {
         //push em reservationsId [] em users.json
         userData[userIndex].reservationsId.push(newReservation.id)
 
-        data.push(newReservation)
+        reserveData.push(newReservation)
 
+        fs.writeFileSync(path.resolve('./samples/reservation.json'), JSON.stringify(reserveData, null, 2));
+        fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(userData, null, 2));
+
+        console.log(userData[userIndex])
         res.status(201).json(newReservation)
 
 
@@ -127,12 +131,30 @@ export const createReservation = async (req, res) => {
         });
     }
 }
-export const getReservation = async (req, res) => {
+export const getReservation = async (req, res) => { //puxa as reservas da pessoa daquele id
     try {
-        const { acomId } = req.params
+        const { id } = req.body
 
-        const reserve = data.find(res => String(res.accommodationId) === String(acomId));
-        res.status(200).json(reserve);
+        const lista_reservas = userData.find(user => (user.id) === (id))
+
+        if (lista_reservas === undefined) {
+            return res.status(400).json({
+                error: "User doesn't exist"
+            });
+        }
+        let output = []
+
+        lista_reservas.reservationsId.forEach(acomm => { //
+            output.push(
+                reserveData.find(idAcom => String(idAcom.id) === String(acomm))
+            )
+        });
+
+
+
+        return res.status(200).json(output);
+
+
 
     } catch (error) {
 
@@ -143,3 +165,40 @@ export const getReservation = async (req, res) => {
 
     }
 }
+
+export const guestCancelReservation = async (req, res) => {
+    try {
+        const { reservaId } = req.query
+
+        const index = reserveData.findIndex(elemento => String(elemento.id) === String(reservaId))
+
+        if (index === -1) {
+            return res.status(200).json({
+                error: "Reserve doesn't exist"
+            });
+        } else {
+            reserveData.splice(index, 1);
+            fs.writeFileSync(path.resolve('./samples/reservation.json'), JSON.stringify(reserveData, null, 2));
+        }
+
+        return res.status(200).json(reserveData)
+
+
+    } catch (error) {
+
+        console.log("Error in guestCancelReservation:", error.message);
+        res.status(500).json({
+            error: "Internal Server Error (Cancel Reservation)"
+        });
+
+    }
+}
+
+// export const editReservation = async (req, res) => {
+//     try {
+
+//     }
+//     catch (error) {
+
+//     }
+// }

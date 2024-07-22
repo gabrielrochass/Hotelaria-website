@@ -75,9 +75,17 @@ export const search = async(req, res) => {
             });
         } else {
             console.log("Found: ", foundHotels.map(hotel => hotel.name));
-            return res.status(200).json({
-                hotels: foundHotels.map(hotel => hotel.name)
-            });
+            
+            const response = foundHotels.flatMap(hotel =>
+                hotel.rooms
+                    .filter(room => room.beds === parseInt(guests) && room.freeDates.includes(checkIn) && room.freeDates.includes(checkOut))
+                    .map(room => ({
+                        name: hotel.name,
+                        price: room.price
+                    }))
+            );
+
+            return res.status(200).json({ hotels: response });
         }
 
 

@@ -4,10 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const publishAccommodation = async (req, res) => {
     try {
-        const { nome, quantidadeQuartos, lotacaoMaxima, precoPorNoite } = req.body;
+        const { nome, quantidadeQuartos, lotacaoMaxima, precoPorNoite, userId } = req.body;
 
         // validações 
-        if (!nome || !quantidadeQuartos || !lotacaoMaxima || !precoPorNoite) {
+        if (!nome || !quantidadeQuartos || !lotacaoMaxima || !precoPorNoite || !userId) {
             console.log("All fields are required");
             return res.status(400).json({
                 error: "All fields are required"
@@ -37,13 +37,16 @@ export const publishAccommodation = async (req, res) => {
 
         var data = JSON.parse(fs.readFileSync(path.resolve('./samples/accommodations.json'), 'utf8'));
 
-        const accommodationId = uuidv4();
+        const accommodationId = data.length+1;
         const newAccommodation = {
             id: accommodationId,
             nome,
             quantidadeQuartos,
             lotacaoMaxima,
-            precoPorNoite
+            precoPorNoite,
+            userId,
+            ratingsId: [],
+            finalGrade: null,
         };
 
         data.push(newAccommodation);
@@ -67,7 +70,7 @@ export const publishAccommodation = async (req, res) => {
 export const editAccommodation = async (req, res) => {
     try {
         const { id } = req.params;
-        const { nome, quantidadeQuartos, lotacaoMaxima, precoPorNoite } = req.body;
+        const { nome, quantidadeQuartos, lotacaoMaxima, precoPorNoite } = req.query;
 
         // validações
         if (!nome || !quantidadeQuartos || !lotacaoMaxima || !precoPorNoite) {
@@ -147,12 +150,36 @@ export const listPublishedAccommodations = async (req, res) => {
 
         const userAccommodations = data.filter(accommodation => accommodation.userId === userId);
 
-        res.status(200).json({
-            accommodations: userAccommodations.map(({ id, nome }) => ({ id, nome }))
-        });
+        res.status(200).json(userAccommodations);
 
     } catch (error) {
         console.log("Error in listPublishedAccommodations controller:", error.message);
+        res.status(500).json({
+            error: "Internal Server Error"
+        });
+    }
+};
+
+export const deleteAccommodation =  async (req, res) => {
+    try{ 
+    const { id } = req.params;
+
+    var data = JSON.parse(fs.readFileSync(path.resolve('./samples/accommodations.json'), 'utf8'));
+
+
+    const index = data.findIndex(acc => acc.id === id);
+
+    if (index === -1) {
+        return res.status(404).json({ error: 'Accommodation not found' });
+    }
+
+    data.splice(index, 1);
+
+    fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2));
+
+    res.status(200).json({ message: 'Accommodation deleted successfully' });
+    } catch (error) {
+        console.log("Error in deleteAccommodations controller", error.message);
         res.status(500).json({
             error: "Internal Server Error"
         });

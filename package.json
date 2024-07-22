@@ -6,10 +6,13 @@
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --write .",
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "project": "python -u script.py"
   },
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "raw-body": "^2.5.2",
     "react-modal": "^3.16.1"
   }
 }

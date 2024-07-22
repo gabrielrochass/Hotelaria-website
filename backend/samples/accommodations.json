@@ -118,5 +118,15 @@
     "userId": "123",
     "ratingsId": [],
     "finalGrade": null
+  },
+  {
+    "id": 11,
+    "nome": "Ninho dos Pombinhos",
+    "quantidadeQuartos": "1",
+    "lotacaoMaxima": "2",
+    "precoPorNoite": "42",
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null
   }
 ]

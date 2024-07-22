@@ -19,7 +19,9 @@
     "email": "matheus@email.com",
     "cellphone": "81998138209",
     "password": "$2a$10$V0tEX8rXO3KBTzuq/mqU0e.0Oal23wuK.7l2E.4l/1a0rhHAkwMMS",
-    "reservationsId": [],
+    "reservationsId": [
+      "a7e8aa27-07e4-41ae-8e23-55ace176fb02"
+    ],
     "accommodationsId": [],
     "liked": [],
     "saved": [],
@@ -32,7 +34,9 @@
     "email": "aloualou@email.com",
     "cellphone": "81998138209",
     "password": "$2a$10$MF0CJlbCrD8X7uJ0kt.NUOf1udXRtvTrAvX0qjTXzCItSyLBVW6uW",
-    "reservationsId": [],
+    "reservationsId": [
+      "10"
+    ],
     "accommodationsId": [],
     "liked": [],
     "saved": [],
@@ -45,7 +49,10 @@
     "email": "muitobom@email.com",
     "cellphone": "81998138209",
     "password": "$2a$10$0VUs7OoJvJbjSIOYdVb5j.IzuER6bmCkCsucxCc7EZf9Cju1XjNxm",
-    "reservationsId": [],
+    "reservationsId": [
+      "1223",
+      "33333"
+    ],
     "accommodationsId": [],
     "liked": [],
     "saved": [],
@@ -66,20 +73,15 @@
     "saved": [
       "1",
       "2"
-    ],
-    "cards": []
+    ]
   },
   {
-    "id": "3",
-    "fullName": "Iasmin Gomes",
-    "birthday": "05/06/2000",
     "email": "iasmin@protonmail.com",
-    "cellphone": "81998138209",
-    "password": "$2a$10$C0zPbFvhQTGIUjYIMIKp3O/gNa.CQUwPAYRm4zKId9xqrrQAmPp.a",
-    "reservationsId": [],
-    "accommodationsId": [],
-    "liked": [],
-    "saved": [],
-    "cards": []
+    "cards": [
+      {
+        "cardNumber": "6666666666666666",
+        "type": "credit"
+      }
+    ]
   }
 ]
