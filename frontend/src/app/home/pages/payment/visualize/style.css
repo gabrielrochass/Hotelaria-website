@@ -1,0 +1,55 @@
+.main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .payment-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .payment-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex; /* Para alinhar os botões na mesma linha */
+    justify-content: space-between; /* Para alinhar os botões no final do item da lista */
+  }
+  
+  .payment-list li .button-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .payment-list li .button-container button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .payment-list li .button-container .select-button {
+    background-color: #007bff; /* Cor azul para botão de Selecionar */
+    color: #fff;
+  }
+  
+  .payment-list li .button-container .remove-button {
+    background-color: #dc3545; /* Cor vermelha para botão de Remover */
+    color: #fff;
+  }
+  
+  .add-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .add-button {
+    padding: 10px 20px;
+    background-color: #28a745; /* Cor verde para botão Adicionar */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }

@@ -1,34 +1,38 @@
 [
   {
-    "id": "1",
-    "name": "Pousada Maresia",
+    "id": "2",
+    "name": "Morada do Mar",
     "location": "Fernando de Noronha",
     "availableRooms": 1,
-    "petFriendly": true,
+    "petFriendly": false,
+    "accessibility": true,
+    "rating": 7,
     "rooms": [
       {
         "beds": 2,
-        "price": 1500,
+        "price": 1000,
         "freeDates": [
-          "21/05",
-          "24/05"
+          "21/05/2024",
+          "24/05/2024"
         ]
       }
     ]
   },
   {
-    "id": "2",
-    "name": "Morada do Mar",
+    "id": "1",
+    "name": "Pousada Maresia",
     "location": "Fernando de Noronha",
     "availableRooms": 1,
     "petFriendly": true,
+    "accessibility": false,
+    "rating": 9,
     "rooms": [
       {
         "beds": 2,
         "price": 1500,
         "freeDates": [
-          "21/05",
-          "24/05"
+          "21/05/2024",
+          "24/05/2024"
         ]
       }
     ]

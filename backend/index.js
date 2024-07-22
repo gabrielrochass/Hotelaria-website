@@ -8,7 +8,7 @@ import accommodationRoutes from './routes/acom.routes.js';
 import authRoutes from './routes/auth.routes.js';
 import emailRoutes from './routes/email.routes.js';
 import likeRoutes from './routes/like.routes.js';
-import pagamentoRoutes from './routes/pagamento.routes.js';
+import paymentRoutes from './routes/payment.routes.js';
 import pingRoutes from './routes/ping.routes.js';
 import promoRoutes from './routes/promo.routes.js';
 import reservationRoutes from './routes/reservation.routes.js';
@@ -26,7 +26,7 @@ app.use(cors({
 
 app.use(express.json());
 dotenv.config();
-app.use(cookieParser());
+// app.use(cookieParser());
 
 app.use('/liking', likeRoutes);
 app.use('/searching', searchRoutes);
@@ -37,11 +37,11 @@ app.use('/user', reservationRoutes);
 app.use('/ping', pingRoutes);
 app.use('/auth', authRoutes);
 app.use('/email', emailRoutes);
-app.use('/add', pagamentoRoutes);
+app.use('/payment-methods', paymentRoutes);
 app.use('/promo', promoRoutes);
 
 app.listen(5001, () => {
-    console.log("\n\nServer is listening on port 5001\n\n");
+  console.log("\n\nServer is listening on port 5001\n\n");
 });
 
 export default app;

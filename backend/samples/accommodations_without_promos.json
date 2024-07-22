@@ -38,5 +38,15 @@
     "userId": "123",
     "ratingsId": [],
     "finalGrade": null
+  },
+  {
+    "id": "12",
+    "nome": "Propriedade 12",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 8,
+    "precoPorNoite": 120,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null
   }
 ]
