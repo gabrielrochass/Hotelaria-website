@@ -1,15 +1,15 @@
 export default class BaseApiResponseModel {
-  msg: string;
-  msgCode: string;
+  msg: string
+  msgCode: string
 
-  code: number;
+  code: number
 
-  data?: any;
+  data?: any
 
   constructor(data: BaseApiResponseModel) {
-    this.msg = data.msg;
-    this.msgCode = data.msgCode;
-    this.code = data.code;
-    this.data = data.data;
+    this.msg = data.msg
+    this.msgCode = data.msgCode
+    this.code = data.code
+    this.data = data.data
   }
 }

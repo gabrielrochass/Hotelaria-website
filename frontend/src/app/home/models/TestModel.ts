@@ -1,9 +1,9 @@
 export default class TestModel {
-  id: string;
-  name: string;
+  id: string
+  name: string
 
   constructor(data: TestModel) {
-    this.id = data.id;
-    this.name = data.name;
+    this.id = data.id
+    this.name = data.name
   }
 }

@@ -1,4 +1,4 @@
-[  
+[
   {
     "id": "012",
     "nome": "Chalé do Porto",
@@ -17,20 +17,17 @@
     "precoPorNoite": 200,
     "userId": "123",
     "ratingsId": [],
-    "precoPorNoite": 200,
-    "userId": "123",
-    "ratingsId": [],
     "finalGrade": null
   },
   {
-      "id": "3",
-      "nome": "Propriedade 3",
-      "quantidadeQuartos": 4,
-      "lotacaoMaxima": 8,
-      "precoPorNoite": 100,
-      "userId": "123",
-      "ratingsId": [],
-      "finalGrade": null
+    "id": "3",
+    "nome": "Propriedade 3",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 8,
+    "precoPorNoite": 100,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null
   },
   {
     "id": "4",
@@ -47,15 +44,10 @@
     "nome": "Propriedade 10",
     "quantidadeQuartos": 4,
     "lotacaoMaxima": 8,
-    "precoPorNoite": 100,
+    "precoPorNoite": 12.533370062499998,
     "userId": "123",
     "ratingsId": [],
-    "finalGrade": null,
-    "desconto": 10,
-    "promoName": "Promoção 10",
-    "promoId": "3",
-    "data_inicio": "2021-10-01",
-    "data_fim": "2021-10-31"
+    "finalGrade": null
   },
   {
     "id": "11",
@@ -66,11 +58,65 @@
     "userId": "123",
     "ratingsId": [],
     "finalGrade": null,
-    "desconto": 20,
-    "promoName": "Promoção 4",
-    "promoId": "4",
+    "desconto": 55,
+    "promoName": "Dia dos Filhos",
+    "promoId": "11",
     "data_inicio": "2021-10-05",
     "data_fim": "2021-10-25"
+  },
+  {
+    "id": "12",
+    "nome": "Propriedade 12",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 8,
+    "precoPorNoite": 48,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null,
+    "desconto": "20",
+    "promoName": "Black friday",
+    "promoId": "12",
+    "data_inicio": "2003-01-22",
+    "data_fim": "2004-01-22"
+  },
+  {
+    "id": "13",
+    "nome": "Propriedade 13",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 80,
+    "precoPorNoite": 600,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null,
+    "desconto": "50",
+    "promoName": "Dia das mães",
+    "promoId": "13",
+    "data_inicio": "2003-01-22",
+    "data_fim": "2003-02-22"
+  },
+  {
+    "id": "14",
+    "nome": "Propriedade 13",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 80,
+    "precoPorNoite": 420,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null,
+    "desconto": "30",
+    "promoName": "Prime Day",
+    "promoId": "14",
+    "data_inicio": "2024-11-14",
+    "data_fim": "2024-11-15"
+  },
+  {
+    "id": "15",
+    "nome": "Propriedade 15",
+    "quantidadeQuartos": 4,
+    "lotacaoMaxima": 80,
+    "precoPorNoite": 672,
+    "userId": "123",
+    "ratingsId": [],
+    "finalGrade": null
   }
 ]
-

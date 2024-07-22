@@ -66,20 +66,6 @@
     "saved": [
       "1",
       "2"
-    ],
-    "cards": []
-  },
-  {
-    "id": "3",
-    "fullName": "Iasmin Gomes",
-    "birthday": "05/06/2000",
-    "email": "iasmin@protonmail.com",
-    "cellphone": "81998138209",
-    "password": "$2a$10$C0zPbFvhQTGIUjYIMIKp3O/gNa.CQUwPAYRm4zKId9xqrrQAmPp.a",
-    "reservationsId": [],
-    "accommodationsId": [],
-    "liked": [],
-    "saved": [],
-    "cards": []
+    ]
   }
 ]
