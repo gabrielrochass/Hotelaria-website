@@ -5,5 +5,5 @@
     "sourceMap": false,
     "types": ["node", "cypress"]
   },
-  "include": ["./**/*.ts", "e2e/features/buscaGUI/buscaGUI.js"]
+  "include": ["./**/*.ts", "e2e/features/visualize/index.js"]
 }

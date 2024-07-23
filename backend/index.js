@@ -15,7 +15,8 @@ import reservationRoutes from './routes/reservation.routes.js';
 import saveRoutes from './routes/save.routes.js';
 import searchRoutes from './routes/search.routes.js';
 import shareRoutes from './routes/share.routes.js';
-import rateRoutes from './routes/rate.routes.js'
+import rateRoutes from './routes/rate.routes.js';
+import consultRoutes from './routes/consult.routes.js'
 import authenticateToken from './middleware/authentication.js';
 
 const app = express();
@@ -41,6 +42,7 @@ app.use('/ping', pingRoutes);
 app.use('/auth', authRoutes);
 app.use('/email', authenticateToken ,emailRoutes);
 app.use('/promo', promoRoutes);
+app.use('/consult', consultRoutes);
 
 
 app.use('/payment-methods', paymentRoutes);

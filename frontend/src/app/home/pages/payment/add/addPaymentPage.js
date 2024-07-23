@@ -1,30 +1,30 @@
 import React, { useState } from 'react'
-import NavBar from '../../Compartilhado/navbar.js'
 import Add from '../../../services/payment/add.js'
+import NavBar from '../../Compartilhado/navbar.js'
 import './style.css'
 
 const AddPaymentPage = () => {
-  const [cardNumber, setCardNumber] = useState('')
-  const [name, setName] = useState('')
-  const [expireDate, setExpireDate] = useState('')
-  const [type, setType] = useState('')
-  const [cvv, setCvv] = useState('')
-  const [success, setSuccessMessage] = useState('')
-  const [error, setError] = useState('')
+  const [cardNumber, setCardNumber] = useState('');
+  const [name, setName] = useState('');
+  const [expireDate, setExpireDate] = useState('');
+  const [type, setType] = useState('credit'); // Inicializando com 'credit'
+  const [cvv, setCvv] = useState('');
+  const [success, setSuccessMessage] = useState('');
+  const [error, setError] = useState('');
 
   const handleSave = async () => {
     try {
-      const result = await Add({ email: 'iasmin@protonmail.com', cardNumber, name, expireDate, type, cvv })
-      setSuccessMessage(result.message)
-      setError('')
-      setCardNumber('')
-      setName('')
-      setExpireDate('')
-      setType('')
-      setCvv('')
+      const result = await Add({ id: '24', cardNumber, name, expireDate, type, cvv });
+      setSuccessMessage(result.message);
+      setError('');
+      setCardNumber('');
+      setName('');
+      setExpireDate('');
+      setType('credit'); // Resetando para 'credit' após salvar
+      setCvv('');
     } catch (error) {
-      setError(error.error)
-      setSuccessMessage('')
+      setError(error.error);
+      setSuccessMessage('');
     }
   }
 
@@ -48,7 +48,14 @@ const AddPaymentPage = () => {
           </div>
           <div className='form-group'>
             <label htmlFor='type'>Tipo:</label>
-            <input type='text' id='type' value={type} onChange={(e) => setType(e.target.value)} />
+            <select
+              id='type'
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+            >
+              <option value='credit'>Crédito</option>
+              <option value='debit'>Débito</option>
+            </select>
           </div>
           <div className='form-group'>
             <label htmlFor='cvv'>CVV:</label>

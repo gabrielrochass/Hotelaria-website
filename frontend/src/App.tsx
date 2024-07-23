@@ -28,7 +28,7 @@ export default function App() {
         <Route path='/create-test' element={<CreateTest />} />
         <Route path='/list-tests' element={<ListTests />} />
         <Route path='/login' element={<LoginPage />} />
-        <Route path='/my-accommodations' element={<MyAccommodations />} />
+        <Route path='/my-accommodations' element={<AccommodationsList />} />
         <Route path='/my-promos' element={<MyPromos />} />
         <Route path='/sign-up' element={<SignUpPage />} />
         <Route path='/search' element={<SearchPage />} />

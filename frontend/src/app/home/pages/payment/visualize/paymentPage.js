@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import NavBar from '../../Compartilhado/navbar.js'
-import Visualize from '../../../services/payment/visualize.js'
-import Remove from '../../../services/payment/remove.js'
-import PopUp from '../../Compartilhado/popUp.js'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import './style.css'
+import Remove from '../../../services/payment/remove.js'
+import Visualize from '../../../services/payment/visualize.js'
+import NavBar from '../../Compartilhado/navbar.js'
+import PopUp from '../../Compartilhado/popUp.js'
 import Parabens from './parabens.js'
+import './style.css'
 
 const PaymentPage = () => {
   const [paymentMethods, setPaymentMethods] = useState([])
@@ -13,9 +13,9 @@ const PaymentPage = () => {
   useEffect(() => {
     const fetchPaymentMethods = async () => {
       try {
-        const email = 'iasmin@protonmail.com'
-        const cards = await Visualize(email)
-        setPaymentMethods(cards)
+        const id = '24';
+        const cards = await Visualize(id);
+        setPaymentMethods(cards);
       } catch (error) {
         console.error('Error fetching payment methods:', error)
       }
@@ -26,15 +26,27 @@ const PaymentPage = () => {
 
   const handleRemove = async (cardNumber, type) => {
     try {
-      const email = 'iasmin@protonmail.com'
-      const result = await Remove({ email, cardNumber, type })
+      const id = '24';
+      const result = await Remove({ id, cardNumber, type });
 
       const updatedMethods = paymentMethods.filter((card) => !(card.cardNumber === cardNumber && card.type === type))
       setPaymentMethods(updatedMethods)
     } catch (error) {
       console.error('Error removing card:', error)
     }
-  }
+  };
+
+  // Função para mapear o tipo de cartão
+  const mapCardType = (type) => {
+    switch (type) {
+      case 'credit':
+        return 'Crédito';
+      case 'debit':
+        return 'Débito';
+      default:
+        return type;
+    }
+  };
 
   return (
     <div>
@@ -45,7 +57,12 @@ const PaymentPage = () => {
         <ul className='payment-list'>
           {paymentMethods.map((card, index) => (
             <li key={index}>
-              <strong>Número do cartão:</strong> {card.cardNumber} <strong>Tipo:</strong> {card.type}
+              <div>
+                <strong>Número do cartão:</strong> {card.cardNumber}
+              </div>
+              <div>
+                <strong>Tipo:</strong> {mapCardType(card.type)}
+              </div>
               <div className='button-container'>
                 <PopUp title='Selecionar'>
                   <Parabens />
@@ -68,4 +85,4 @@ const PaymentPage = () => {
   )
 }
 
-export default PaymentPage
+export default PaymentPage;

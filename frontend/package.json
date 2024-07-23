@@ -30,6 +30,7 @@
     "@mui/material": "^5.16.4",
     "axios": "^1.7.2",
     "cors": "^2.8.5",
+    "jsonwebtoken": "^9.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.1",
@@ -38,8 +39,7 @@
     "react-router-dom": "^6.25.1",
     "react-scripts": "^5.0.1",
     "typescript": "^4.9.5",
-    "zod": "^3.21.4",
-    "jsonwebtoken": "^9.0.2"
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
@@ -57,7 +57,9 @@
     "@types/testing-library__jest-dom": "^5.14.6",
     "@vitejs/plugin-react": "^4.0.0",
     "@vitest/coverage-c8": "^0.31.1",
+    "cucumber": "^6.0.7",
     "cypress": "^12.15.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "esbuild": "^0.18.20",
     "eslint-plugin-react-refresh": "^0.4.8",
     "husky": "^8.0.3",

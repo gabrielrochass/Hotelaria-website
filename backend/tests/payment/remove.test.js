@@ -29,16 +29,16 @@ defineFeature(feature, test => {
             usersData = JSON.parse(fs.readFileSync('./samples/users.json', 'utf8'));
         });
 
-        given(/^o usuário com e-mail "(.*)" está cadastrado no sistema$/, (email) => {
-            let usersExist = usersData.some(user => user.email === email);
+        given(/^o usuário com id "(.*)" está cadastrado no sistema$/, (id) => {
+            let usersExist = usersData.some(user => user.id === id);
             
             if (!usersExist) {
                 const empty = [];
                 const cards = empty;
 
                 const newUser = {
-                email: email,
-                cards: cards
+                    id: id,
+                    cards: cards
                 };
 
                 usersData.push(newUser);
@@ -47,7 +47,7 @@ defineFeature(feature, test => {
         });
 
         and(/^o cartão com cardNumber "(.*)" e type "(.*)" está registrado no seu cadastro$/, (cardNumber, type) => {
-            const user = usersData.find(element => element.email === 'iasmin@protonmail.com');
+            const user = usersData.find(element => element.id === '24');
 
             if (user) {
                 const existingCard = user.cards.some(card => card.cardNumber === cardNumber && card.type === type);
@@ -64,8 +64,8 @@ defineFeature(feature, test => {
             }
         });
 
-        when(/^uma nova requisição DELETE é feita com email: "(.*)", cardNumber: "(.*)" e type: "(.*)"$/, async (email, cardNumber, type) => {
-            const url = `/payment-methods/remove?email=${encodeURIComponent(email)}&cardNumber=${encodeURIComponent(cardNumber)}&type=${encodeURIComponent(type)}`;
+        when(/^uma nova requisição DELETE é feita com id: "(.*)", cardNumber: "(.*)" e type: "(.*)"$/, async (id, cardNumber, type) => {
+            const url = `/payment-methods/remove?id=${encodeURIComponent(id)}&cardNumber=${encodeURIComponent(cardNumber)}&type=${encodeURIComponent(type)}`;
 
             response = await request.delete(url);
         });

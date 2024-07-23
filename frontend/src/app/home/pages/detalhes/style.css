@@ -1,0 +1,91 @@
+/* style.css */
+
+/* Container for the whole page */
+.detalhes-container {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Styling for the hotel name */
+  .hotel-name {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 1rem;
+  }
+  
+  /* Styling for the hotel image */
+  .hotel-image {
+    display: block;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 800px;
+    height: 400px; /* Ajustado para a altura da imagem */
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  /* Container for the details and actions */
+  .details-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+  }
+  
+  /* Styling for the details info card */
+  .details-info {
+    width: 100%;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.6; 
+  }
+  
+  .details-info h2 {
+    margin-top: 0;
+    font-size: 1.75rem;
+  }
+  
+  /* Styling for room details */
+  .room-details {
+    border-top: 1px solid #ddd;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  /* Styling for the action buttons */
+  .details-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .action-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #007bff;
+    transition: background-color 0.3s;
+  }
+  
+  .action-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .action-button:nth-of-type(2) {
+    background-color: #28a745;
+  }
+  
+  .action-button:nth-of-type(2):hover {
+    background-color: #218838;
+  }
+
+  
+  

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { get } from '../../services/accommodations/get.js'
 import { update } from '../../services/accommodations/update.js'
 
@@ -78,3 +78,4 @@ const EditAccommodation = () => {
 }
 
 export default EditAccommodation
+
