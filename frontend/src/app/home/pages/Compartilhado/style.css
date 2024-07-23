@@ -20,6 +20,7 @@ nav {
 .nome-da-empresa h1 {
   font-size: 1.7rem;
   margin-left: 15px;
+  display: inline;
 }
 
 .navbar-right {
@@ -49,6 +50,8 @@ button {
   cursor: pointer;
   font-size: 16px;
   padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
 }
 
 button:hover {

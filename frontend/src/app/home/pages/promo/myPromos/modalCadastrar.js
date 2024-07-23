@@ -1,40 +1,42 @@
-import React, { useState } from 'react';
-import CadastrarPromo from '../../../services/promo/cadastrarPromo.js';
-import Button from '../../Compartilhado/button.js';
+import React, { useState } from 'react'
+import { IoClose } from 'react-icons/io5'
+import CadastrarPromo from '../../../services/promo/cadastrarPromo.js'
+import Button from '../../Compartilhado/button.js'
+import './stylePromo.css'
 
 const ModalCadastrar = ({ onClose, onUpdate }) => {
-  const [promoName, setPromoName] = useState('');
-  const [id, setId] = useState('');
-  const [desconto, setDesconto] = useState('');
-  const [data_inicio, setData_inicio] = useState('');
-  const [data_fim, setData_fim] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-
+  const [promoName, setPromoName] = useState('')
+  const [id, setId] = useState('')
+  const [desconto, setDesconto] = useState('')
+  const [data_inicio, setData_inicio] = useState('')
+  const [data_fim, setData_fim] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
 
   const handleCadastrarPromo = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const data = {
       promoName,
       id,
       desconto,
       data_inicio,
       data_fim
-    };
-    try {
-      await CadastrarPromo(data);
-      setSuccessMessage('Promoção cadastrada com sucesso');
-      onUpdate(data);
-      setTimeout(() => {
-        onClose();
-      }, 2000);
-    } catch (error) {
-      setErrorMessage(error.response?.data?.error || 'Erro ao cadastrar promoção');
     }
-  };
+    try {
+      await CadastrarPromo(data)
+      setSuccessMessage('Promoção cadastrada com sucesso')
+      onUpdate(data)
+      setTimeout(() => {
+        onClose()
+      }, 2000)
+    } catch (error) {
+      setErrorMessage(error.response?.data?.error || 'Erro ao cadastrar promoção')
+    }
+  }
 
   return (
     <div>
+      <IoClose className='close-icon' onClick={onClose} />
       <h1>Cadastrar Promoção</h1>
       <br />
       <form onSubmit={handleCadastrarPromo}>
@@ -67,11 +69,10 @@ const ModalCadastrar = ({ onClose, onUpdate }) => {
         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
         <br />
-        <Button nome="Salvar e Cadastrar" type='submit' />
-        <button onClick={onClose}>Fechar</button>
+        <Button nome='Salvar e Cadastrar' type='submit' />
       </form>
     </div>
-  );
+  )
 }
 
-export default ModalCadastrar;
+export default ModalCadastrar

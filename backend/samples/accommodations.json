@@ -48,24 +48,34 @@
     "nome": "Propriedade 10",
     "quantidadeQuartos": 4,
     "lotacaoMaxima": 8,
-    "precoPorNoite": 100,
+    "precoPorNoite": 70,
     "userId": "123",
     "ratingsId": [
       "b8ad79c7-268d-40bc-89cc-17ab330c72ed",
       "fe81c101-acbb-4a33-9434-64b4f042a9c4",
       "32a0714b-eff3-4b96-98df-d7ffe306e384"
     ],
-    "finalGrade": null
+    "finalGrade": null,
+    "desconto": "30",
+    "promoName": "30% OFF",
+    "promoId": "10",
+    "data_inicio": "2024-05-21",
+    "data_fim": "2024-05-24"
   },
   {
     "id": "11",
     "nome": "Propriedade 4",
     "quantidadeQuartos": 4,
     "lotacaoMaxima": 10,
-    "precoPorNoite": 200,
+    "precoPorNoite": 72,
     "userId": "123",
     "ratingsId": [],
-    "finalGrade": null
+    "finalGrade": null,
+    "desconto": "10",
+    "promoName": "Dia das mães",
+    "promoId": "11",
+    "data_inicio": "2022-02-12",
+    "data_fim": "2022-03-12"
   },
   {
     "id": "12",
@@ -82,28 +92,28 @@
     "nome": "Propriedade 13",
     "quantidadeQuartos": 4,
     "lotacaoMaxima": 80,
-    "precoPorNoite": 299.99999999999994,
+    "precoPorNoite": 269.99999999999994,
     "userId": "123",
     "ratingsId": [
       "e7a2449b-f91f-4abc-9085-c90929928eff"
     ],
     "finalGrade": null,
-    "desconto": 55,
-    "promoName": "Dia das mães",
+    "desconto": 10,
+    "promoName": "Dia dos Pais",
     "promoId": "13",
-    "data_inicio": "2003-01-22",
-    "data_fim": "2003-02-22"
+    "data_inicio": "2024-12-12",
+    "data_fim": "2024-12-15"
   },
   {
     "id": "14",
     "nome": "Propriedade 13",
     "quantidadeQuartos": 4,
     "lotacaoMaxima": 80,
-    "precoPorNoite": 420,
+    "precoPorNoite": 480,
     "userId": "123",
     "ratingsId": [],
     "finalGrade": null,
-    "desconto": "30",
+    "desconto": 20,
     "promoName": "Prime Day",
     "promoId": "14",
     "data_inicio": "2024-11-14",

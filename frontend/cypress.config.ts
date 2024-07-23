@@ -4,10 +4,13 @@ const { defineConfig } = require('cypress')
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on) {
-      on('file:preprocessor', cucumber({
-        typescript: require.resolve('typescript')
-      }))
+      on(
+        'file:preprocessor',
+        cucumber({
+          typescript: require.resolve('typescript')
+        })
+      )
     },
-    specPattern: 'cypress/e2e/features/*.feature',
+    specPattern: 'cypress/e2e/features/**/*.feature'
   }
 })
