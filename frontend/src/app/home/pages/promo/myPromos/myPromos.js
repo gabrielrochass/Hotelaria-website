@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import deletarPromo from '../../../services/promo/deletarPromo.js';
 import ListarPromo from '../../../services/promo/listarPromo.js';
 import NavBar from '../../Compartilhado/navbar.js';
@@ -70,7 +69,9 @@ const MyPromos = () => {
                   <p>Desconto: {promo.desconto}%</p>
                   <p>Início: {promo.data_inicio}</p>
                   <p>Fim: {promo.data_fim}</p>
-                  <Link to={`/promo/${promo.promoId}`} className='details-link'>Ver detalhes</Link>
+                  <p>Quantidade de quartos: {promo.quantidadeQuartos} </p>
+                  <p>Lotação máxima: {promo.lotacaoMaxima} </p>
+                  {/* <Link to={`/promo/${promo.promoId}`} className='details-link'>Ver detalhes</Link> */}
                 </div>
                 <div className='promo-actions'>
                 {/* <MdDelete className={`lixeira ${promo.promoName.replace(/\s+/g, '-').toLowerCase()}`} onClick={() => handleDeletePromo(promo.promoId)} /> */}
