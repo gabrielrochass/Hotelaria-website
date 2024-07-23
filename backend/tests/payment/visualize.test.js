@@ -29,16 +29,16 @@ defineFeature(feature, test => {
             usersData = JSON.parse(fs.readFileSync('./samples/users.json', 'utf8'));
         });
 
-        given(/^o usuário com e-mail "(.*)" está cadastrado no sistema$/, (email) => {
-            let usersExist = usersData.some(user => user.email === email);
+        given(/^o usuário com id "(.*)" está cadastrado no sistema$/, (id) => {
+            let usersExist = usersData.some(user => user.id === id);
             
             if (!usersExist) {
                 const empty = [];
                 const cards = empty;
 
                 const newUser = {
-                email: email,
-                cards: cards
+                    id: id,
+                    cards: cards
                 };
 
                 usersData.push(newUser);
@@ -47,7 +47,7 @@ defineFeature(feature, test => {
         });
 
         and(/^o cartão com cardNumber "(.*)" e type "(.*)" está registrado no seu cadastro$/, (cardNumber, type) => {
-            const user = usersData.find(element => element.email === 'iasmin@protonmail.com');
+            const user = usersData.find(element => element.id === '24');
 
             if (user) {
                 const existingCard = user.cards.some(card => card.cardNumber === cardNumber && card.type === type);
@@ -64,11 +64,11 @@ defineFeature(feature, test => {
             }
         });
 
-        when(/^uma nova requisição GET é feita com e-mail "(.*)"$/, async (email) => {
-            const url = `/payment-methods/visualize?email=${encodeURIComponent(email)}`;
+        when(/^uma nova requisição GET é feita com id "(.*)"$/, async (id) => {
+            const url = `/payment-methods/visualize?id=${encodeURIComponent(id)}`;
 
             response = await request.get(url).send({
-                email
+                id: id
             })
         });
 
@@ -89,16 +89,16 @@ defineFeature(feature, test => {
             usersData = JSON.parse(fs.readFileSync('./samples/users.json', 'utf8'));
         });
 
-        given(/^o usuário com e-mail "(.*)" está cadastrado no sistema$/, (email) => {
-            let usersExist = usersData.some(user => user.email === email);
+        given(/^o usuário com id "(.*)" está cadastrado no sistema$/, (id) => {
+            let usersExist = usersData.some(user => user.id === id);
             
             if (!usersExist) {
                 const empty = [];
                 const cards = empty;
 
                 const newUser = {
-                email: email,
-                cards: cards
+                    id: id,
+                    cards: cards
                 };
 
                 usersData.push(newUser);
@@ -107,7 +107,7 @@ defineFeature(feature, test => {
         });
 
         and('não há cartão registrado no seu cadastro', () => {
-            const user = usersData.find(element => element.email === 'iasmin@protonmail.com');
+            const user = usersData.find(element => element.id === '24');
 
             if (user) {
                 user.cards = [];
@@ -115,11 +115,11 @@ defineFeature(feature, test => {
             }
         });
 
-        when(/^uma nova requisição GET é feita com o e-mail "(.*)"$/, async (email) => {
-            const url = `/payment-methods/visualize?email=${encodeURIComponent(email)}`;
+        when(/^uma nova requisição GET é feita com o id "(.*)"$/, async (id) => {
+            const url = `/payment-methods/visualize?id=${encodeURIComponent(id)}`;
 
             response = await request.get(url).send({
-                email
+                id: id
             })
         });
 

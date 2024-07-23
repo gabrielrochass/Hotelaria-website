@@ -4,10 +4,10 @@ import path from 'path';
 
 export const visualize = async (req, res) => {
     try {
-        const { email } = req.query;
+        const { id } = req.query;
 
         var data = JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf8'));
-        const user = data.find(element => element.email === email);
+        const user = data.find(element => element.id === id);
         
         if (user) {
             res.status(200).json(user.cards);
@@ -28,7 +28,7 @@ export const visualize = async (req, res) => {
 
 export const add =  async (req, res) => {
     try {
-        const { email, cardNumber, name, expireDate, type, cvv } = req.body;
+        const { id, cardNumber, name, expireDate, type, cvv } = req.body;
 
         // Validation
         // Empty field
@@ -77,7 +77,7 @@ export const add =  async (req, res) => {
 
         // isUnique
         var data = JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf8'));
-        const user = data.find(element => element.email === email);
+        const user = data.find(element => element.id === id);
 
         if (user && user.cards) {
             const existingCard = user.cards.find(card => card.cardNumber === cardNumber && card.type === type);
@@ -109,9 +109,9 @@ export const add =  async (req, res) => {
 
 export const remove = async (req, res) => {
     try {
-        const { email, cardNumber, type } = req.query;
+        const { id, cardNumber, type } = req.query;
         var data = JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf8'));
-        const userIndex = data.findIndex(element => element.email === email);
+        const userIndex = data.findIndex(element => element.id === id);
         const user = data[userIndex];
 
         // Validation

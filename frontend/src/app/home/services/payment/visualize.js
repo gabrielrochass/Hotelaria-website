@@ -1,12 +1,14 @@
-import api from '../api.js'
+import api from '../api.js';
 
-const Visualize = async (email) => {
+
+const Visualize = async (id) => {
   try {
-    const response = await api.get(`/payment-methods/visualize?email=${encodeURIComponent(email)}`)
-    return response.data
-  } catch (error) {
-    console.error(error)
-    return 'Error trying to access payment methods'
+    const response = await api.get(`/payment-methods/visualize?id=${encodeURIComponent(id)}`);
+    return response.data;
+  } 
+  catch (error) {
+    console.error(error);
+    return "Error trying to access payment methods";
   }
 }
 

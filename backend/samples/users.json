@@ -95,12 +95,25 @@
     "cards": []
   },
   {
-    "email": "iasmin@protonmail.com",
+    "id": "24",
     "cards": [
       {
-        "cardNumber": "9445388266625443",
+        "cardNumber": "5555555555555555",
         "type": "credit"
       }
     ]
+  },
+  {
+    "id": "22321c6f-f89a-46f5-9c8b-06beb3f05b2e",
+    "fullName": "iasmin",
+    "birthday": "06/05/2000",
+    "email": "iasmingo@protonmail.com",
+    "cellphone": "81987997633",
+    "password": "$2a$10$yAoZqBR.lDqYmg.6vnEmXOftPNZigxhW/pki5vyUdxWxlUdo4A2ZG",
+    "reservationsId": [],
+    "accommodationsId": [],
+    "liked": [],
+    "saved": [],
+    "cards": []
   }
 ]

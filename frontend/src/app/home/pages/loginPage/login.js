@@ -3,6 +3,7 @@ import NavBar from '../Compartilhado/navbar.js'
 import login from '../../services/userAuth/login.js'
 import './style.css'
 import { useNavigate } from 'react-router-dom'
+import ButtonSubmit from '../Compartilhado/buttonSubmit/buttonSubmit.js'
 
 const LoginPage = () => {
   const [email, setEmail] = useState('')
@@ -16,12 +17,12 @@ const LoginPage = () => {
       const response = await login(email, password)
       if (response.token) {
         localStorage.setItem('token', response.token)
-        navigate('/')
+        navigate('/search')
       } else {
-        alert('Invalid Credentials')
+        alert('Email ou senha inválidos')
       }
     } catch (error) {
-      alert('Login failed!')
+      alert('Login falhou')
     }
   }
 
@@ -37,12 +38,10 @@ const LoginPage = () => {
               <input type='email' id='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
             </div>
             <div className='form-group'>
-              <label htmlFor='password'>Password</label>
+              <label htmlFor='password'>Senha</label>
               <input type='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
             </div>
-            <button type='submit' className='login-button'>
-              Login
-            </button>
+            <ButtonSubmit nome='Login' className='login-button'/>
           </form>
         </div>
       </div>

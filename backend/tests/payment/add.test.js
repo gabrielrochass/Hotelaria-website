@@ -29,16 +29,16 @@ defineFeature(feature, test => {
             usersData = JSON.parse(fs.readFileSync('./samples/users.json', 'utf8'));
         });
         
-        given(/^o usuário com e-mail "(.*)" está cadastrado no sistema$/, (email) => {
-            let usersExist = usersData.some(user => user.email === email);
+        given(/^o usuário com id "(.*)" está cadastrado no sistema$/, (id) => {
+            let usersExist = usersData.some(user => user.id === id);
             
             if (!usersExist) {
                 const empty = [];
                 const cards = empty;
 
                 const newUser = {
-                email: email,
-                cards: cards
+                    id: id,
+                    cards: cards
                 };
 
                 usersData.push(newUser);
@@ -47,7 +47,7 @@ defineFeature(feature, test => {
         });
 
         and(/^não há o cartão com cardNumber "(.*)" e type "(.*)" registrado no seu cadastro$/, (cardNumber, type) => {
-            const user = usersData.find(element => element.email === 'iasmin@protonmail.com');
+            const user = usersData.find(element => element.id === '24');
 
             if (user.cards.length > 0) {
                 user.cards = user.cards.filter(card => card.cardNumber !== cardNumber && card.type !== type);
@@ -55,11 +55,11 @@ defineFeature(feature, test => {
             }
         });
 
-        when(/^uma nova requisição POST é feita com e-mail: "(.*)", cardNumber: "(.*)", name: "(.*)", expireDate: "(.*)", type: "(.*)" e cvv: "(.*)"$/, async (email, cardNumber, name, expireDate, type, cvv) => {
+        when(/^uma nova requisição POST é feita com id: "(.*)", cardNumber: "(.*)", name: "(.*)", expireDate: "(.*)", type: "(.*)" e cvv: "(.*)"$/, async (id, cardNumber, name, expireDate, type, cvv) => {
             const url = '/payment-methods/add';
 
             response = await request.post(url).send({
-                email, 
+                id, 
                 cardNumber, 
                 name, 
                 expireDate, 
@@ -87,16 +87,16 @@ defineFeature(feature, test => {
             usersData = JSON.parse(fs.readFileSync('./samples/users.json', 'utf8'));
         });        
 
-        given(/^o usuário com e-mail "(.*)" está cadastrado no sistema$/, (email) => {
-            let usersExist = usersData.some(user => user.email === email);
+        given(/^o usuário com id "(.*)" está cadastrado no sistema$/, (id) => {
+            let usersExist = usersData.some(user => user.id === id);
             
             if (!usersExist) {
                 const empty = [];
                 const cards = empty;
 
                 const newUser = {
-                email: email,
-                cards: cards
+                    id: id,
+                    cards: cards
                 };
 
                 usersData.push(newUser);
@@ -105,7 +105,7 @@ defineFeature(feature, test => {
         });
 
         and(/^não há o cartão com cardNumber "(.*)" e type "(.*)" registrado no seu cadastro$/, (cardNumber, type) => {
-            const user = usersData.find(element => element.email === 'iasmin@protonmail.com');
+            const user = usersData.find(element => element.id === '24');
 
             if (user.cards.length > 0) {
                 user.cards = user.cards.filter(card => card.cardNumber !== cardNumber && card.type !== type);
@@ -113,11 +113,11 @@ defineFeature(feature, test => {
             }
         });
 
-        when(/^uma nova requisição POST é feita com e-mail: "(.*)", cardNumber: "(.*)", name: "(.*)", expireDate: "(.*)", type: "(.*)" e cvv: "(.*)"$/, async (email, cardNumber, name, expireDate, type, cvv) => {
+        when(/^uma nova requisição POST é feita com id: "(.*)", cardNumber: "(.*)", name: "(.*)", expireDate: "(.*)", type: "(.*)" e cvv: "(.*)"$/, async (id, cardNumber, name, expireDate, type, cvv) => {
             const url = '/payment-methods/add';
 
             response = await request.post(url).send({
-                email, 
+                id, 
                 cardNumber, 
                 name, 
                 expireDate, 

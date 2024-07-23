@@ -7,6 +7,7 @@
     "petFriendly": false,
     "accessibility": true,
     "rating": 3,
+    "likes": 120,
     "rooms": [
       {
         "beds": 2,
@@ -26,6 +27,7 @@
     "petFriendly": true,
     "accessibility": false,
     "rating": 4,
+    "likes": 200,
     "rooms": [
       {
         "beds": 2,
@@ -45,6 +47,7 @@
     "petFriendly": true,
     "accessibility": true,
     "rating": 5,
+    "likes": 350,
     "rooms": [
       {
         "beds": 2,
@@ -81,6 +84,7 @@
     "petFriendly": false,
     "accessibility": false,
     "rating": 2,
+    "likes": 80,
     "rooms": [
       {
         "beds": 2,
@@ -100,6 +104,7 @@
     "petFriendly": true,
     "accessibility": true,
     "rating": 4,
+    "likes": 150,
     "rooms": [
       {
         "beds": 2,
@@ -127,6 +132,7 @@
     "petFriendly": false,
     "accessibility": true,
     "rating": 2,
+    "likes": 60,
     "rooms": [
       {
         "beds": 2,

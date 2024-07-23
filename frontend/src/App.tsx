@@ -3,7 +3,6 @@ import CreateTest from './app/home/pages/CreateTest'
 import ListTests from './app/home/pages/ListTests'
 
 // importar rotas de src/pages
-import MyAccommodations from './app/home/pages/Accommodations/myAccommodations'
 import HomePage from './app/home/pages/homePage/homePage'
 import LoginPage from './app/home/pages/loginPage/login'
 import ActivePromosPage from './app/home/pages/promo/activePromosPage/activePromosPage'
@@ -28,7 +27,7 @@ export default function App() {
         <Route path='/create-test' element={<CreateTest />} />
         <Route path='/list-tests' element={<ListTests />} />
         <Route path='/login' element={<LoginPage />} />
-        <Route path='/my-accommodations' element={<MyAccommodations />} />
+        <Route path='/my-accommodations' element={<AccommodationsList />} />
         <Route path='/my-promos' element={<MyPromos />} />
         <Route path='/sign-up' element={<SignUpPage />} />
         <Route path='/search' element={<SearchPage />} />
