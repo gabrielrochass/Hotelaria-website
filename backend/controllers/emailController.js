@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import nodemailer from 'nodemailer';
+import authenticateToken from '../middleware/authentication.js';
 
 const transporter = nodemailer.createTransport({
     service: "gmail",

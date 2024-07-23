@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react'
 import Modal from 'react-modal'
+import '../payment/visualize/style.css'
 import './style.css'
 
 Modal.setAppElement('#root')
 
-const PopUp = ({ children, title }) => {
+const PopUp = ({ children, title, className }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const openModal = () => {
@@ -19,13 +20,15 @@ const PopUp = ({ children, title }) => {
 
   return (
     <div>
-      <button onClick={openModal}>{title}</button>
+      <button onClick={openModal}>
+        {title}
+      </button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={{
           overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.5)'
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
           },
           content: {
             top: '50%',
@@ -33,9 +36,14 @@ const PopUp = ({ children, title }) => {
             right: 'auto',
             bottom: 'auto',
             marginRight: '-50%',
-            transform: 'translate(-50%, -50%)'
+            transform: 'translate(-50%, -50%)',
+            borderRadius: '10px',
+            padding: '20px',
+            
           }
         }}
+        data-testid='modal'
+        // className='modal'
       >
         {children}
       </Modal>

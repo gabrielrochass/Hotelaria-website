@@ -86,10 +86,8 @@ export const signUp =  async (req, res) => {
             saved,
             cards
         }
-        
-        genToken(id, res)
 
-        data.push(newUser)
+        data.push(newUser);
 
         fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(data, null, 2))
 
@@ -128,12 +126,10 @@ export const login = async (req, res) => {
             })
         }
 
-        genToken(data.id, res)
+        const token = genToken(data.id, res)
 
         res.status(200).json({
-            id: data.id,
-            fullName: data.fullName,
-            email: data.email
+            token: token
         })
 
     } catch (error) {

@@ -65,13 +65,9 @@ defineFeature(feature, test => {
         });
 
         when(/^uma nova requisição DELETE é feita com email: "(.*)", cardNumber: "(.*)" e type: "(.*)"$/, async (email, cardNumber, type) => {
-            const url = '/payment-methods/remove';
+            const url = `/payment-methods/remove?email=${encodeURIComponent(email)}&cardNumber=${encodeURIComponent(cardNumber)}&type=${encodeURIComponent(type)}`;
 
-            response = await request.delete(url).send({
-                email,
-                cardNumber,
-                type
-            })
+            response = await request.delete(url);
         });
 
         then('o cartão é removido do seu cadastro', () => {

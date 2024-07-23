@@ -1,55 +1,74 @@
+/* style.css */
+
+/* Estilização geral */
 .main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .payment-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .payment-list li {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    display: flex; /* Para alinhar os botões na mesma linha */
-    justify-content: space-between; /* Para alinhar os botões no final do item da lista */
-  }
-  
-  .payment-list li .button-container {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .payment-list li .button-container button {
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .payment-list li .button-container .select-button {
-    background-color: #007bff; /* Cor azul para botão de Selecionar */
-    color: #fff;
-  }
-  
-  .payment-list li .button-container .remove-button {
-    background-color: #dc3545; /* Cor vermelha para botão de Remover */
-    color: #fff;
-  }
-  
-  .add-button-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }
-  
-  .add-button {
-    padding: 10px 20px;
-    background-color: #28a745; /* Cor verde para botão Adicionar */
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.payment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.payment-list li {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.payment-list li strong {
+  margin-right: 5px;
+}
+
+.button-container {
+  margin-top: 10px;
+}
+
+.select-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.select-button:hover {
+  background-color: #218838;
+}
+
+.remove-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: #c82333;
+}
+
+.add-button-container {
+  margin-top: 20px;
+}
+
+.add-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}

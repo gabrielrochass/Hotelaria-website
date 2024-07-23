@@ -109,7 +109,7 @@ export const add =  async (req, res) => {
 
 export const remove = async (req, res) => {
     try {
-        const { email, cardNumber, type } = req.body;
+        const { email, cardNumber, type } = req.query;
         var data = JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf8'));
         const userIndex = data.findIndex(element => element.email === email);
         const user = data[userIndex];

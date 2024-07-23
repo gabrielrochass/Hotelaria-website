@@ -16,7 +16,11 @@
     "lotacaoMaxima": 4,
     "precoPorNoite": 200,
     "userId": "123",
-    "ratingsId": [],
+    "ratingsId": [
+      "ffcfcfa0-9813-4fbd-b99a-753d8fbbc131",
+      "ee915242-996e-428a-b52a-f39cafd7bd9f",
+      "0d946ea2-ca66-42d7-a911-e2fa9db6424c"
+    ],
     "finalGrade": null
   },
   {
@@ -44,25 +48,34 @@
     "nome": "Propriedade 10",
     "quantidadeQuartos": 4,
     "lotacaoMaxima": 8,
-    "precoPorNoite": 12.533370062499998,
+    "precoPorNoite": 27.119434230000003,
     "userId": "123",
-    "ratingsId": [],
-    "finalGrade": null
+    "ratingsId": [
+      "b8ad79c7-268d-40bc-89cc-17ab330c72ed",
+      "fe81c101-acbb-4a33-9434-64b4f042a9c4",
+      "32a0714b-eff3-4b96-98df-d7ffe306e384"
+    ],
+    "finalGrade": null,
+    "desconto": "10",
+    "promoName": "Promoção de Natal",
+    "promoId": "10",
+    "data_inicio": "01/12/2024",
+    "data_fim": "25/12/2024"
   },
   {
     "id": "11",
     "nome": "Propriedade 4",
     "quantidadeQuartos": 4,
     "lotacaoMaxima": 10,
-    "precoPorNoite": 200,
+    "precoPorNoite": 72,
     "userId": "123",
     "ratingsId": [],
     "finalGrade": null,
-    "desconto": 55,
-    "promoName": "Dia dos Filhos",
+    "desconto": "10",
+    "promoName": "Dia das mães",
     "promoId": "11",
-    "data_inicio": "2021-10-05",
-    "data_fim": "2021-10-25"
+    "data_inicio": "2022-02-12",
+    "data_fim": "2022-03-12"
   },
   {
     "id": "12",
@@ -72,38 +85,30 @@
     "precoPorNoite": 48,
     "userId": "123",
     "ratingsId": [],
-    "finalGrade": null,
-    "desconto": "20",
-    "promoName": "Black friday",
-    "promoId": "12",
-    "data_inicio": "2003-01-22",
-    "data_fim": "2004-01-22"
+    "finalGrade": null
   },
   {
     "id": "13",
     "nome": "Propriedade 13",
     "quantidadeQuartos": 4,
     "lotacaoMaxima": 80,
-    "precoPorNoite": 600,
+    "precoPorNoite": 269.99999999999994,
     "userId": "123",
-    "ratingsId": [],
-    "finalGrade": null,
-    "desconto": "50",
-    "promoName": "Dia das mães",
-    "promoId": "13",
-    "data_inicio": "2003-01-22",
-    "data_fim": "2003-02-22"
+    "ratingsId": [
+      "e7a2449b-f91f-4abc-9085-c90929928eff"
+    ],
+    "finalGrade": null
   },
   {
     "id": "14",
     "nome": "Propriedade 13",
     "quantidadeQuartos": 4,
     "lotacaoMaxima": 80,
-    "precoPorNoite": 420,
+    "precoPorNoite": 480,
     "userId": "123",
     "ratingsId": [],
     "finalGrade": null,
-    "desconto": "30",
+    "desconto": 20,
     "promoName": "Prime Day",
     "promoId": "14",
     "data_inicio": "2024-11-14",
@@ -116,8 +121,42 @@
     "lotacaoMaxima": 80,
     "precoPorNoite": 672,
     "userId": "123",
-    "ratingsId": [],
-    "finalGrade": null
+    "ratingsId": [
+      "bf346223-e3fc-4806-a74f-52a995b7184b",
+      "edea4cc6-8cb0-4f8c-bdb9-70d4b858a8a2",
+      "8829e778-35ab-4eec-8fcf-a1a5dd5a57b2",
+      "7e2bead6-4b94-41c1-93b6-3f0746c11bd6",
+      "9ce6d360-c102-4cb7-83ff-9da62c4635cf",
+      "02af4547-4612-4b1d-b5a6-5710b731cbf1",
+      "ace76d80-d59a-4520-bd73-11184f56259e",
+      "33be5513-adcf-4775-832f-522a48d88087",
+      "70d98456-3932-40b1-b5cd-ef5a18bd494a",
+      "2beaf9ce-1376-47e0-988d-c2866f196cbd",
+      "6ec7aaca-026d-459c-b924-d5ab1d7be4c3",
+      "c0cd1695-4ee6-4425-8b3e-3cc70cc42285",
+      "4373c834-f851-48a1-9db1-a7d56166d3a2",
+      "a77456a8-584f-4d9c-9a88-ed7afb41c98b",
+      "bd8f7eab-b9f3-46ac-ab0b-5169fa14fc45",
+      "14bd3bb9-2277-4897-9dfd-6a5989a9da94",
+      "5179c0b1-9310-4c1f-baa1-73f5a53ebb40",
+      "0c42b557-2956-498d-b49d-4e10e43f3ecb",
+      "0d64ca99-e099-493e-ba6c-ac57420079c7",
+      "5fa805f2-ac26-4a98-b152-38c24756693e",
+      "5ec435ef-e6cf-47b1-8504-095220164f3a",
+      "b211bd0e-d39d-4ce0-9932-4b55a638f7e2",
+      "d740089e-73af-452b-8a10-6831a31bd17d",
+      "f43c1a46-c59e-4f68-a870-5299eba1ce85",
+      "a76e3b4d-57e9-488c-94ea-3a9d91227aa5",
+      "de6d0b17-6192-470c-8ea7-05f3e14619d3",
+      "7695be55-1b57-4c45-8e6b-a5f93b97bf3e",
+      "bd1d39c6-5eec-44c9-8ac7-acfd899c1c9e",
+      "c84b15f2-35b3-44a7-848c-c9e70f5a9aa2",
+      "1b625448-8aea-41a4-9fda-6646ec91df13",
+      "35f256af-2da5-4ac0-a051-599dfe79a7fc",
+      "4a4211a8-5e9a-4a07-ab3c-5b4c292c7930",
+      "c779f3cc-8008-4f6e-907b-41b49cc4b8da"
+    ],
+    "finalGrade": "3.75"
   },
   {
     "id": 11,

@@ -3,7 +3,7 @@ import { createRating, listRating } from '../controllers/ratingController.js';
 
 const router = express.Router();
 
-router.post('/guest/reservations/avaliacao/:acomId', createRating);
-router.get('/guest/reservations/avaliacao/:acomId', listRating);
+router.post('/guest/minhas_reservas/avaliacao/:resId', createRating);
+router.get('/guest/minhas_reservas/avaliacao/:acomId', listRating);
 
 export default router

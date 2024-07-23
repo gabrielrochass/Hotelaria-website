@@ -147,6 +147,15 @@ export const editPromo = (req, res) => {
             return res.status(400).json({ error: 'Datas Inválidas: A data de fim deve ser posterior a data de início.' });
         }
         
+        console.log('Valor atual: ', hotel.precoPorNoite); 
+        // calcula novo valor se o desconto for alterado
+        const valorSemDesconto = noDiscount(hotel.precoPorNoite, hotel.desconto);
+        console.log(`Valor sem desconto: ${valorSemDesconto}`);
+        const novoValor = withDiscount(valorSemDesconto, desconto);
+        console.log(`Novo valor: ${novoValor}`);
+        hotel.precoPorNoite = novoValor; // atualiza o precoPorNoite com o novo valor
+
+
         // atualiza os dados
         hotel.desconto = parseInt(desconto);
         hotel.promoName = promoName;
