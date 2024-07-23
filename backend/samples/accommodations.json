@@ -48,7 +48,7 @@
     "nome": "Propriedade 10",
     "quantidadeQuartos": 4,
     "lotacaoMaxima": 8,
-    "precoPorNoite": 45,
+    "precoPorNoite": 34.425,
     "userId": "123",
     "ratingsId": [
       "b8ad79c7-268d-40bc-89cc-17ab330c72ed",
@@ -56,11 +56,11 @@
       "32a0714b-eff3-4b96-98df-d7ffe306e384"
     ],
     "finalGrade": null,
-    "desconto": 10,
-    "promoName": "Dia dos Namorados",
+    "desconto": "15",
+    "promoName": "Dia dos Pais",
     "promoId": "10",
-    "data_inicio": "2024-07-23",
-    "data_fim": "2024-07-25"
+    "data_inicio": "22/08/2024",
+    "data_fim": "25/10/2024"
   },
   {
     "id": "11",
