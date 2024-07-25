@@ -1,9 +1,8 @@
-// variáveis de promoção: desconto, promoName, data_inicio, data_fim
+// variáveis de promoção: desconto, promoName, promoId, data_inicio, data_fim
 
 import fs from 'fs';
 import path from 'path';
 
-import { v4 as uuidv4 } from 'uuid';
 
 function withDiscount(original, desconto) {
     return original * (1 - (desconto/100)); // retorna o valor com desconto
@@ -22,6 +21,10 @@ function validateDiscount(desconto) {
     return desconto > 0 && desconto <= 100; // retorna true se o desconto for entre 1 e 100%
 }
 
+function temPromo(hotel) {
+    return hotel.promoName; // retorna true se o hotel tiver promoção
+}
+
 var data = JSON.parse(fs.readFileSync(path.resolve('./samples/accommodations.json'), 'utf8'));
 
 
@@ -34,15 +37,18 @@ export const createPromo = (req, res) => {
             return res.status(400).json({ error: 'All fields are required.' });
         }
 
-        const hotelIndex = data.findIndex(hotel => String(hotel.id) === String(id)); // encontra o hotel pelo id
-        
-        if (hotelIndex === -1) { // verifica se o hotel existe
-            return res.status(404).json({ error: 'Hotel not found.' });
+        const hotel = data.find(hotel => String(hotel.id) === String(id)); // encontra o hotel pelo id
+
+        if (!hotel) { // verifica se o hotel existe
+            return res.status(404).json({ error: 'Erro: Hotel não encontrado.' });
         }
 
-        const hotel = data[hotelIndex]; // obtém o hotel encontrado
-        if (!validateDiscount(desconto)) { // verifica se o desconto é válido
-            return res.status(400).json({ error: 'Invalid discount. It should be between 1 and 100' });
+        if (!validateDiscount(desconto)) { 
+            return res.status(400).json({ error: 'Desconto Inválido: O percentual de desconto deve ser um número entre 1 e 100.' });
+        } 
+
+        if (!validateDate(data_inicio, data_fim)) { 
+            return res.status(400).json({ error: 'Datas Inválidas: A data de fim deve ser posterior a data de início.' });
         }
 
         const newDiscountValue = withDiscount(hotel.precoPorNoite, desconto); // calcula o novo precoPorNoite com base no desconto
@@ -50,25 +56,17 @@ export const createPromo = (req, res) => {
 
         hotel.desconto = desconto;
         hotel.promoName = promoName;
-        hotel.promoId = uuidv4(); 
-        
-        if (!validateDate(data_inicio, data_fim)) { 
-            return res.status(400).json({ error: 'Invalid date. Final date should be after the beginning promotion date.' });
-        }
-
+        hotel.promoId = id;
         hotel.data_inicio = data_inicio;
         hotel.data_fim = data_fim;
 
-        // data[hotelIndex] = hotel;
-        // delete data[hotelIndex];
-        // data.push(hotel);
-        fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2))
-        res.status(200).json({ message: 'Promo created successfully.' }); // retorna o hotel atualizado
-    
+        fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2));
+        return res.status(200).json({ message: 'Promo created successfully.' }); // retorna o hotel atualizado
     } catch (error) {
         return res.status(400).send({ message: error.message });
     }
 };
+
 
 // listar promoções
 export const listPromos = (req, res) => {
@@ -92,28 +90,29 @@ export const listPromos = (req, res) => {
 export const deletePromo = (req, res) => {
     try {
         const { id } = req.params; // pega o id do hotel
-        console.log(`Deleting promo for hotel with id: ${id}`); // log the id for debugging
+        console.log(`Deleting promo for hotel with id: ${id}`); 
         const hotelIndex = data.findIndex(hotel => String(hotel.id) === String(id));
 
         if (hotelIndex === -1) { // verifica se o hotel existe
-            console.log(`Hotel with id: ${id} not found`); // log the error for debugging
+            console.log(`Hotel with id: ${id} not found`); 
             return res.status(404).json({ error: 'Hotel not found.' });
         }
 
-        // Remover as chaves relacionadas à promoção
+        // remove as chaves relacionadas à promoção
         delete data[hotelIndex].promoName;
         delete data[hotelIndex].desconto;
         delete data[hotelIndex].data_inicio;
         delete data[hotelIndex].data_fim;
         delete data[hotelIndex].promoId;
 
+        // escreve no arquivo
         fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2));
 
-        console.log(`Promo deleted for hotel with id: ${id}`); // log the success for debugging
+        console.log(`Promo deleted for hotel with id: ${id}`);
         res.status(200).json({ message: 'Promo deleted successfully.' });
     
     } catch (error) {
-        console.log(`Error deleting promo for hotel with id: ${id}: ${error.message}`); // log the error for debugging
+        console.log(`Error deleting promo for hotel with id: ${id}: ${error.message}`); 
         return res.status(400).send({ message: error.message });
     }
 };
@@ -124,36 +123,46 @@ export const editPromo = (req, res) => {
         const { id, desconto, promoName, data_inicio, data_fim } = req.body; // pega os dados da requisição
 
         if (!id || !desconto || !promoName || !data_inicio || !data_fim) { // verifica se todos os campos foram preenchidos
+            // retorna qual campo está faltando
             return res.status(400).json({ error: 'All fields are required.' });
         }
 
-        const hotelIndex = data.findIndex(hotel => String(hotel.id) === String(id));
+        const hotel = data.find(hotel => String(hotel.id) === String(id)); // encontra o hotel pelo id
 
-        if (hotelIndex === -1) { // verifica se o hotel existe
-            return res.status(404).json({ error: 'Promotion not found.' });
+        if (!hotel) { // verifica se o hotel existe
+            return res.status(404).json({ error: 'Erro: Hotel não encontrado.' });
         }
 
-        const hotel = data[hotelIndex]; // obtém o hotel encontrado
+        // se o hotel n tiver promo, retorna promo not found
+        if (!temPromo(hotel)) {
+            return res.status(200).json({ error: 'Erro: Promoção não encontrada.' });
+        } 
 
         if (!validateDiscount(desconto)) { 
-            return res.status(400).json({ error: 'Invalid discount. It should be between 1 and 100.' });
+            return res.status(400).json({ error: 'Desconto Inválido: O percentual de desconto deve ser um número entre 1 e 100.' });
         }
         
         
         if (!validateDate(data_inicio, data_fim)) { 
-            return res.status(400).json({ error: 'Invalid date. Final date should be after the beginning promotion date.' });
+            return res.status(400).json({ error: 'Datas Inválidas: A data de fim deve ser posterior a data de início.' });
         }
         
-        // atualiza os dados do hotel
+        console.log('Valor atual: ', hotel.precoPorNoite); 
+        // calcula novo valor se o desconto for alterado
+        const valorSemDesconto = noDiscount(hotel.precoPorNoite, hotel.desconto);
+        console.log(`Valor sem desconto: ${valorSemDesconto}`);
+        const novoValor = withDiscount(valorSemDesconto, desconto);
+        console.log(`Novo valor: ${novoValor}`);
+        hotel.precoPorNoite = novoValor; // atualiza o precoPorNoite com o novo valor
+
+
+        // atualiza os dados
+        hotel.desconto = parseInt(desconto);
         hotel.promoName = promoName;
         hotel.data_inicio = data_inicio;
         hotel.data_fim = data_fim;
-        const precoSemDesconto = noDiscount(hotel.precoPorNoite, hotel.desconto);
-        hotel.desconto = desconto;
-        const precoComDesconto = withDiscount(precoSemDesconto, hotel.desconto);
-        hotel.precoPorNoite = precoComDesconto; 
         
-        // data[hotelIndex] = hotel; // atualiza o hotel no banco de dados
+        // escreve no arquivo
         fs.writeFileSync(path.resolve('./samples/accommodations.json'), JSON.stringify(data, null, 2))
         res.status(200).json({ message: 'Promo edited successfully.' }); // retorna o hotel atualizado
     } catch (error) {

@@ -1,13 +1,123 @@
 [
-    {
-        "id": "1",
-        "accommodationName": "Exemplo",
-        "numRooms": 2,
-        "capacity": 4,
-        "totalPaid": 1000,
-        "checkin": "2024-08-25",
-        "rates": 3,
-        "accommodationId": "2",
-        "userId": "1"
-    }
+  {
+    "id": "1",
+    "accommodationName": "Exemplo",
+    "numRooms": 2,
+    "capacity": 4,
+    "totalPaid": 1000,
+    "checkin": "2024-08-25",
+    "rates": 3,
+    "accommodationId": "2",
+    "userId": "1"
+  },
+  {
+    "id": "1223",
+    "accommodationName": "bla",
+    "numRooms": 3,
+    "capacity": 6,
+    "totalPaid": 2000,
+    "checkin": "2024-08-25",
+    "rates": 3,
+    "accommodationId": "2",
+    "userId": "1"
+  },
+  {
+    "id": "2233",
+    "accommodationName": "SEGUNDO",
+    "numRooms": 2,
+    "capacity": 4,
+    "totalPaid": 1000,
+    "checkin": "2024-08-25",
+    "rates": 3,
+    "accommodationId": "2",
+    "userId": "1"
+  },
+  {
+    "id": "33333",
+    "accommodationName": "terceiro",
+    "numRooms": 2,
+    "capacity": 4,
+    "totalPaid": 1000,
+    "checkin": "2024-08-25",
+    "rates": 3,
+    "accommodationId": "2",
+    "userId": "1"
+  },
+  {
+    "id": "a7e8aa27-07e4-41ae-8e23-55ace176fb02",
+    "acomName": "Propriedade 10",
+    "numRooms": 2,
+    "capacity": 4,
+    "totalPaid": 300,
+    "checkin": "2024-03-02",
+    "rates": 3,
+    "acomId": "10",
+    "userId": "5e3ff57b-3917-4092-83ed-9c2b696bac69"
+  },
+  {
+    "id": "555",
+    "acomName": "Propriedade 10",
+    "numRooms": 2,
+    "capacity": 4,
+    "totalPaid": 300,
+    "checkin": "2024-03-02",
+    "rates": 3,
+    "acomId": "10",
+    "userId": "5e3ff57b-3917-4092-83ed-9c2b696bac69"
+  },
+  {
+    "id": "888",
+    "acomName": "Propriedade 10",
+    "numRooms": 2,
+    "capacity": 4,
+    "totalPaid": 300,
+    "checkin": "2024-03-02",
+    "rates": 3,
+    "acomId": "10",
+    "userId": "5e3ff57b-3917-4092-83ed-9c2b696bac69"
+  },
+  {
+    "id": "80a533f3-bf36-43c6-b3eb-11efe66c1926",
+    "acomName": "Propriedade 13",
+    "numRooms": 2,
+    "capacity": 4,
+    "totalPaid": 1800,
+    "checkin": "2024-03-02",
+    "rates": 3,
+    "acomId": "13",
+    "userId": "5e3ff57b-3917-4092-83ed-9c2b696bac69"
+  },
+  {
+    "id": "07bd9efc-3536-4294-a0b4-f9b7a31ec57c",
+    "acomName": "Propriedade 15",
+    "numRooms": 2,
+    "capacity": 4,
+    "totalPaid": 2016,
+    "checkin": "2024-03-02",
+    "rates": 3,
+    "acomId": "15",
+    "userId": "5e3ff57b-3917-4092-83ed-9c2b696bac69"
+  },
+  {
+    "id": "f7b410cd-241f-436b-92f8-e8847455dfa4",
+    "acomName": "Propriedade 15",
+    "numRooms": 2,
+    "capacity": 4,
+    "totalPaid": 2016,
+    "checkin": "2024-03-02",
+    "rates": 3,
+    "acomId": "15",
+    "userId": "5e3ff57b-3917-4092-83ed-9c2b696bac69"
+  },
+  {
+    "id": "d6ddf68a-208f-4858-a8ba-6265185a9fdf",
+    "acomName": "Propriedade 15",
+    "numRooms": 2,
+    "capacity": 4,
+    "totalPaid": 2016,
+    "checkin": "2024-03-02",
+    "rates": 3,
+    "acomId": "15",
+    "userId": "5e3ff57b-3917-4092-83ed-9c2b696bac69"
+  }
 ]

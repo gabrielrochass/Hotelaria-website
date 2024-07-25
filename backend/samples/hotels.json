@@ -1,34 +1,145 @@
 [
   {
-    "id": "1",
-    "name": "Pousada Maresia",
+    "id": "2",
+    "name": "Morada do Mar",
     "location": "Fernando de Noronha",
     "availableRooms": 1,
-    "petFriendly": true,
+    "petFriendly": false,
+    "accessibility": true,
+    "rating": 3,
+    "likes": 120,
     "rooms": [
       {
         "beds": 2,
-        "price": 1500,
+        "price": 1000,
         "freeDates": [
-          "21/05",
-          "24/05"
+          "21/05/2024",
+          "24/05/2024"
         ]
       }
     ]
   },
   {
-    "id": "2",
-    "name": "Morada do Mar",
+    "id": "1",
+    "name": "Pousada Maresia",
     "location": "Fernando de Noronha",
     "availableRooms": 1,
     "petFriendly": true,
+    "accessibility": false,
+    "rating": 4,
+    "likes": 200,
     "rooms": [
       {
         "beds": 2,
         "price": 1500,
         "freeDates": [
-          "21/05",
-          "24/05"
+          "21/05/2024",
+          "24/05/2024"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Hotel Paraíso",
+    "location": "Fernando de Noronha",
+    "availableRooms": 3,
+    "petFriendly": true,
+    "accessibility": true,
+    "rating": 5,
+    "likes": 350,
+    "rooms": [
+      {
+        "beds": 2,
+        "price": 3000,
+        "freeDates": [
+          "21/05/2024",
+          "24/05/2024",
+          "25/05/2024"
+        ]
+      },
+      {
+        "beds": 1,
+        "price": 1500,
+        "freeDates": [
+          "21/05/2024",
+          "24/05/2024"
+        ]
+      },
+      {
+        "beds": 3,
+        "price": 4000,
+        "freeDates": [
+          "21/05/2024",
+          "24/05/2024"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Lar Doce Lar",
+    "location": "Fernando de Noronha",
+    "availableRooms": 1,
+    "petFriendly": false,
+    "accessibility": false,
+    "rating": 2,
+    "likes": 80,
+    "rooms": [
+      {
+        "beds": 2,
+        "price": 800,
+        "freeDates": [
+          "21/05/2024",
+          "24/05/2024"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Recanto dos Corais",
+    "location": "Fernando de Noronha",
+    "availableRooms": 2,
+    "petFriendly": true,
+    "accessibility": true,
+    "rating": 4,
+    "likes": 150,
+    "rooms": [
+      {
+        "beds": 2,
+        "price": 1800,
+        "freeDates": [
+          "21/05/2024",
+          "24/05/2024"
+        ]
+      },
+      {
+        "beds": 1,
+        "price": 900,
+        "freeDates": [
+          "21/05/2024",
+          "24/05/2024"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Pousada Naiepe",
+    "location": "Fernando de Noronha",
+    "availableRooms": 1,
+    "petFriendly": false,
+    "accessibility": true,
+    "rating": 2,
+    "likes": 60,
+    "rooms": [
+      {
+        "beds": 2,
+        "price": 750,
+        "freeDates": [
+          "21/05/2024",
+          "24/05/2024"
         ]
       }
     ]

@@ -1,14 +1,14 @@
-import { useContext, useEffect } from "react";
-import styles from "./index.module.css";
-import { HomeContext } from "../../context/HomeContext";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from 'react'
+import styles from './index.module.css'
+import { HomeContext } from '../../context/HomeContext'
+import { Link } from 'react-router-dom'
 
 const ListTests = () => {
-  const { service, state } = useContext(HomeContext);
+  const { service, state } = useContext(HomeContext)
 
   useEffect(() => {
-    service.getTests();
-  }, [service]);
+    service.getTests()
+  }, [service])
   return (
     <section className={styles.container}>
       <h1 className={styles.title}>List Tests</h1>
@@ -21,25 +21,22 @@ const ListTests = () => {
               {tests.map((test) => {
                 return (
                   <div key={test.id} className={styles.listItem}>
-                    <span
-                      data-cy={`test-item-${test.name}`}
-                      className={styles.listItemText}
-                    >
+                    <span data-cy={`test-item-${test.name}`} className={styles.listItemText}>
                       {test.name}
                     </span>
                   </div>
-                );
+                )
               })}
             </>
-          ),
+          )
         })}
       </div>
       <br />
-      <Link to="/create-test" replace>
+      <Link to='/create-test' replace>
         CRIAR TEST
       </Link>
     </section>
-  );
-};
+  )
+}
 
-export default ListTests;
+export default ListTests
